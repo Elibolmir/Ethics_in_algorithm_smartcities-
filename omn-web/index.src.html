@@ -12,18 +12,18 @@
    4. Her three title sections, contact, legal. */
 :root{
   --paper:#ffffff;
-  --blue:#2449d8;        /* friendly Israel blue */
-  --blue-deep:#1b3399;
-  --blue-soft:#eaf0ff;
-  --orange:#ff8a3d;
-  --orange-deep:#e8691b;
-  --orange-soft:#fff0e5;
-  --pink:#f39bb0;
-  --pink-deep:#d9708a;
-  --pink-soft:#fdeef2;
+  --blue:#5b7cf0;        /* soft friendly Israel blue */
+  --blue-deep:#3550b8;
+  --blue-soft:#eef2ff;
+  --orange:#ffab78;
+  --orange-deep:#e98a52;
+  --orange-soft:#fff4ec;
+  --pink:#f6b3c4;
+  --pink-deep:#de8aa0;
+  --pink-soft:#fef2f5;
   --rose-gold:#e8a598;
-  --ink:#1d2a5e;
-  --ink-soft:#5a6488;
+  --ink:#2d3768;
+  --ink-soft:#66708f;
   --line:#e8ebf5;
   --font-head:"Quicksand","Trebuchet MS",system-ui,sans-serif;
   --font-body:"Nunito","Segoe UI",system-ui,sans-serif;
@@ -53,13 +53,13 @@ section{scroll-margin-top:84px}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;gap:14px;padding-block:10px}
-.circle{flex:none;width:58px;height:58px;border-radius:50%;cursor:pointer;color:#fff;border:0;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),#5b7cff);box-shadow:0 10px 24px -12px var(--blue)}
+.circle{flex:none;width:58px;height:58px;border-radius:50%;cursor:pointer;color:#fff;border:0;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),#8aa2ff);box-shadow:0 10px 24px -12px var(--blue)}
 .circle svg{width:26px;height:26px}
 nav.main{margin-left:auto;display:flex;flex-wrap:wrap;border:1.5px solid var(--line);border-radius:99px;overflow:hidden}
 nav.main a{color:var(--ink);text-decoration:none;font-family:var(--font-head);font-weight:600;font-size:.98rem;padding:11px 22px}
 nav.main a + a{border-left:1.5px solid var(--line)}
 nav.main a:hover{background:var(--pink-soft);color:var(--pink-deep)}
-@media (max-width:760px){nav.main{border:0;gap:4px}nav.main a{padding:8px 10px;font-size:.85rem;border:0!important}}
+@media (max-width:760px){nav.main{border:0;gap:2px;flex-wrap:nowrap;overflow-x:auto;min-width:0}nav.main a{padding:8px 10px;font-size:.82rem;border:0!important;white-space:nowrap}.circle{width:48px;height:48px}}
 
 /* accessibility panel */
 .panel{position:fixed;z-index:40;top:calc(env(safe-area-inset-top,0px) + 82px);left:max(16px,env(safe-area-inset-left,0px));width:min(370px,calc(100vw - 32px));max-height:calc(100vh - 110px);overflow:auto;background:var(--paper);border:1.5px solid var(--line);border-radius:28px;padding:22px;box-shadow:0 30px 60px -24px rgba(29,42,94,.35)}
@@ -72,37 +72,35 @@ nav.main a:hover{background:var(--pink-soft);color:var(--pink-deep)}
 .pill[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
 .sizes{display:flex;gap:6px}
 
-/* 1. front */
-.front{position:relative;min-height:calc(100vh - 80px);display:grid;place-items:center;background:#fff;overflow:hidden}
-.front .stage{position:relative;width:min(560px,82vw);aspect-ratio:1;cursor:grab;touch-action:pan-y}
-.front .stage:active{cursor:grabbing}
+/* 1. front = logo behind, all buttons in front */
+.front{position:relative;overflow:hidden;background:radial-gradient(900px 600px at 50% 45%,#fff 0 40%,var(--blue-soft) 75%,#fff 100%)}
+.front .stage{position:absolute;left:50%;top:52%;width:min(760px,110vw);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;opacity:.55}
 .front .stage canvas{width:100%!important;height:100%!important;display:block}
 .front .fallback{position:absolute;inset:14%;display:grid;place-items:center}
 .front .fallback img{width:80%}
-.front .word{position:absolute;left:0;right:0;bottom:-2%;text-align:center}
-.front .word b{display:block;font-family:var(--font-head);font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:.18em;color:var(--blue-deep)}
-.front .word span{font-family:var(--font-head);font-weight:500;color:var(--ink-soft);letter-spacing:.04em}
-.down{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--line);color:var(--blue);text-decoration:none;background:#fff}
-.down svg{width:20px;height:20px}
-
+.front-ui{position:relative;z-index:1;padding-block:40px 64px}
+.word{text-align:center;margin-bottom:34px}
+.word b{display:block;font-family:var(--font-head);font-weight:700;font-size:clamp(1.8rem,3.4vw,2.6rem);letter-spacing:.2em;color:var(--blue-deep)}
+.word span{font-family:var(--font-head);font-weight:500;color:var(--ink-soft);letter-spacing:.04em}
+.front .oval,.front .area{backdrop-filter:blur(6px)}
+.front .oval{background:rgba(255,255,255,.82)}
 /* 2. main */
-.main-screen .wrap{padding-block:64px 80px}
 .grid{display:grid;grid-template-columns:minmax(0,.8fr) 56px minmax(0,1.4fr);gap:20px;align-items:center}
 .left{display:flex;flex-direction:column;gap:14px;align-items:flex-start;min-width:0}
 .oval{font:inherit;font-family:var(--font-head);font-weight:600;font-size:1.08rem;color:var(--ink);background:var(--paper);border:1.5px solid var(--c,var(--blue));border-radius:999px;padding:14px 28px;cursor:pointer;text-decoration:none;transition:transform .2s ease, background .2s ease}
 .oval:hover{transform:translateY(-2px);background:var(--bg,var(--blue-soft))}
-.help{font-family:var(--font-head);font-weight:600;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.2;color:var(--blue-deep);margin:10px 0 4px}
+.help{font-family:var(--font-head);font-weight:600;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.2;color:var(--blue-deep);margin:10px 0 4px;text-shadow:0 0 18px #fff,0 0 6px #fff}
 .help em{font-style:normal;background:linear-gradient(90deg,var(--orange),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
 .best{font-size:1.15rem;padding:20px 34px;background:linear-gradient(135deg,var(--orange-soft),var(--pink-soft));border-color:var(--orange)}
 .brace{align-self:stretch;display:flex}
 .brace svg{width:56px;height:100%}
 .areas{display:grid;gap:14px;min-width:0}
-.area{display:flex;align-items:center;gap:18px;padding:18px 26px;border-radius:999px;text-decoration:none;color:var(--ink);background:var(--bg);border:0;font:inherit;text-align:left;cursor:pointer;transition:transform .25s ease, box-shadow .25s ease}
+.area{display:flex;align-items:center;gap:18px;padding:18px 26px;border-radius:999px;text-decoration:none;color:var(--ink);background:color-mix(in srgb,var(--bg) 88%,transparent);border:0;font:inherit;text-align:left;cursor:pointer;transition:transform .25s ease, box-shadow .25s ease}
 .area:hover{transform:translateX(6px);box-shadow:0 16px 34px -20px var(--c)}
 .area .dot{flex:none;width:14px;height:14px;border-radius:50%;background:var(--c)}
 .area h3{font-size:1.25rem}
 .area p{margin:2px 0 0;font-size:.95rem;color:var(--ink-soft)}
-.area.eq{background:linear-gradient(120deg,var(--blue),#5b7cff 60%,var(--pink));color:#fff}
+.area.eq{background:linear-gradient(120deg,var(--blue),#8aa2ff 60%,var(--pink));color:#fff}
 .area.eq h3{color:#fff}.area.eq p{color:#eef2ff}.area.eq .dot{background:#fff}
 @media (max-width:900px){.grid{grid-template-columns:1fr}.brace{display:none}.area{border-radius:30px}}
 
@@ -128,7 +126,7 @@ form.msg input:focus,form.msg textarea:focus,form.msg select:focus{border-color:
 .consent input{width:auto!important;margin-top:4px}
 .sent{font-weight:600;color:var(--blue);min-height:1.4em;margin:0}
 .btn{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-family:var(--font-head);font-weight:700;text-decoration:none;border-radius:99px;padding:13px 26px;cursor:pointer;border:0;color:#fff;background:linear-gradient(135deg,var(--orange),var(--pink));box-shadow:0 12px 26px -14px var(--orange-deep)}
-.btn.blue{background:linear-gradient(135deg,var(--blue),#5b7cff);box-shadow:0 12px 26px -14px var(--blue)}
+.btn.blue{background:linear-gradient(135deg,var(--blue),#8aa2ff);box-shadow:0 12px 26px -14px var(--blue)}
 footer{background:var(--blue-deep);color:#dfe5ff}
 footer .wrap{padding-block:36px;display:grid;gap:20px}
 .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
@@ -157,7 +155,7 @@ dialog::backdrop{background:rgba(29,42,94,.45)}
 .cookies .btn,.cookies .pill{padding:9px 16px;font-size:.88rem}
 
 /* guide */
-.guide-btn{position:fixed;z-index:36;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:10px;border:0;cursor:pointer;font:inherit;font-family:var(--font-head);font-weight:700;color:#fff;border-radius:99px;padding:8px 18px 8px 8px;background:linear-gradient(135deg,var(--blue),#5b7cff);box-shadow:0 16px 34px -14px var(--blue)}
+.guide-btn{position:fixed;z-index:36;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:10px;border:0;cursor:pointer;font:inherit;font-family:var(--font-head);font-weight:700;color:#fff;border-radius:99px;padding:8px 18px 8px 8px;background:linear-gradient(135deg,var(--blue),#8aa2ff);box-shadow:0 16px 34px -14px var(--blue)}
 .guide-btn .av,.g-head .av{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center}
 .guide-btn .av img,.g-head .av img{width:28px}
 .guide{position:fixed;z-index:37;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:min(400px,calc(100vw - 32px));height:min(580px,calc(100vh - 120px));background:#fff;border-radius:28px;box-shadow:0 30px 70px -20px rgba(29,42,94,.45);border:1.5px solid var(--line);display:flex;flex-direction:column;overflow:hidden}
@@ -215,15 +213,11 @@ dialog::backdrop{background:rgba(29,42,94,.45)}
 
 <main>
   <section class="front" id="inicio" aria-label="OMN Hub">
-    <div class="stage" id="stage" role="img" aria-label="Logo de OMN Hub en 3D. Arrastra para girarlo.">
+    <div class="stage" id="stage" role="img" aria-label="Logo de OMN Hub en 3D">
       <div class="fallback" id="fallback"><img src="data:image/png;base64,__MARK__" alt=""></div>
-      <div class="word"><b>OMN HUB</b><span>Recapacitando al mundo</span></div>
     </div>
-    <a class="down" href="#principal" aria-label="Entrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
-  </section>
-
-  <section class="main-screen" id="principal" aria-label="Pantalla principal">
-    <div class="wrap">
+    <div class="wrap front-ui" id="principal">
+      <div class="word"><b>OMN HUB</b><span>Recapacitando al mundo</span></div>
       <div class="grid">
         <div class="left">
           <button class="oval" data-open="dNews" style="--c:var(--blue);--bg:var(--blue-soft)">Noticias</button>
@@ -234,7 +228,7 @@ dialog::backdrop{background:rgba(29,42,94,.45)}
           <button class="oval" data-open="dUA" style="--c:var(--blue);--bg:var(--blue-soft)">Unidad de Apoyo</button>
         </div>
         <div class="brace" aria-hidden="true">
-          <svg viewBox="0 0 56 400" preserveAspectRatio="none"><path d="M46 4 C22 4 24 34 24 64 L24 168 C24 192 14 200 4 200 C14 200 24 208 24 232 L24 336 C24 366 22 396 46 396" fill="none" stroke="#2449d8" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+          <svg viewBox="0 0 56 400" preserveAspectRatio="none"><path d="M46 4 C22 4 24 34 24 64 L24 168 C24 192 14 200 4 200 C14 200 24 208 24 232 L24 336 C24 366 22 396 46 396" fill="none" stroke="#5b7cf0" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         </div>
         <div class="areas">
           <button class="area" data-open="dAgro" style="--bg:var(--orange-soft);--c:var(--orange)"><span class="dot"></span><span><h3>Agrotech</h3><p>Planta medicinal para herbolarios, farmacias y particulares</p></span></button>
@@ -519,7 +513,7 @@ Cuando ayude, usa la herramienta abrir para llevar a la persona al apartado que 
   const key = new T.DirectionalLight(0xffffff, .7); key.position.set(2,4,5); scene.add(key);
   const cam = new T.PerspectiveCamera(30, 1, .1, 100); cam.position.set(0, 0, 6.4);
   const LOGO = __LOGO__;
-  const blue = new T.MeshPhysicalMaterial({color:0x0b2cc4, metalness:0, roughness:.35, clearcoat:.7, clearcoatRoughness:.15, envMapIntensity:.22});
+  const blue = new T.MeshPhysicalMaterial({color:0x4f6ff0, metalness:0, roughness:.35, clearcoat:.7, clearcoatRoughness:.15, envMapIntensity:.22});
   const roseGold = new T.MeshStandardMaterial({color:0xeea092, metalness:.7, roughness:.26, envMapIntensity:.55, emissive:0x6e2a2a, emissiveIntensity:.3});
   const mark = new T.Group();
   const path = (pts, P) => { const v = pts.map(([x,y]) => new T.Vector2(x,y)); const p = new P(); p.moveTo(v[0].x, v[0].y); p.splineThru(v.slice(1).concat([v[0]])); return p; };
@@ -529,11 +523,8 @@ Cuando ayude, usa la herramienta abrir para llevar a la persona al apartado que 
     geo.translate(0,0,-.04); mark.add(new T.Mesh(geo, blue));
   });
   const pearls = LOGO.d.map(([x,y,rad]) => { const m = new T.Mesh(new T.SphereGeometry(rad*.98, 64, 64), roseGold); m.position.set(x,y,.02); mark.add(m); return m; });
-  mark.scale.setScalar(1.25); mark.position.y = .22; scene.add(mark);
-  const state = {auto:true}; let down = false, px = 0, py = 0;
-  stage.addEventListener('pointerdown', e => { down = true; px = e.clientX; py = e.clientY; state.auto = false; });
-  addEventListener('pointerup', () => { if (down) setTimeout(() => state.auto = true, 2500); down = false; });
-  addEventListener('pointermove', e => { if (!down) return; mark.rotation.y += (e.clientX - px) * .01; mark.rotation.x = Math.max(-.6, Math.min(.6, mark.rotation.x + (e.clientY - py) * .008)); px = e.clientX; py = e.clientY; });
+  mark.scale.setScalar(1.22); scene.add(mark);
+  const state = {auto:true};
   const fit = () => { const w = stage.clientWidth, h = stage.clientHeight; r.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); };
   addEventListener('resize', fit); fit();
   const t0 = performance.now();
@@ -541,7 +532,7 @@ Cuando ayude, usa la herramienta abrir para llevar a la persona al apartado que 
     const t = (now - t0) / 1000;
     if (!reduced()){
       if (state.auto) mark.rotation.y = Math.sin(t * .45) * .5;
-      mark.position.y = .22 + Math.sin(t * .9) * .04;
+      mark.position.y = Math.sin(t * .9) * .04;
       pearls.forEach((p,i) => p.position.z = .02 + Math.sin(t*1.4 + i*2) * .03);
     }
     r.render(scene, cam); requestAnimationFrame(loop);
