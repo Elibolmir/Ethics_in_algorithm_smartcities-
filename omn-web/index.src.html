@@ -16,8 +16,10 @@
   --rose-deep:#99525d;
   --rose-light:#e9b7ae;
   --nickel:#9aa1a8;
-  --petrol:#2f4d57;
-  --petrol-soft:#5f7a83;
+  --omn:#3f8f86;            /* OMN blue: the pen */
+  --omn-tint:#e4f3f0;
+  --petrol:#1f5f5a;
+  --petrol-soft:#4f7f79;
   --sky:#e7effb;
   --blue:#2350c8;
   --sage:#e7f2ec;
@@ -58,7 +60,7 @@ section{scroll-margin-top:86px}
 .btn.rose{background:linear-gradient(135deg,#c98b8f,var(--rose) 55%,var(--rose-deep));color:#fff;box-shadow:var(--shadow)}
 .btn.soft{background:var(--paper);color:var(--petrol);border-color:var(--rose-light)}
 .btn.soft:hover{background:var(--blush)}
-.btn.petrol{background:var(--petrol);color:#fff}
+.btn.petrol{background:var(--omn);color:#fff}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;gap:14px;padding-block:10px}
@@ -119,7 +121,7 @@ nav.main a:hover{background:var(--blush);color:var(--rose-deep)}
 .left{display:flex;flex-direction:column;gap:16px;min-width:0}
 .tabs{display:flex;gap:10px;flex-wrap:wrap}
 .tab{font:inherit;font-weight:700;border:2px solid var(--rose-light);background:var(--paper);color:var(--petrol);border-radius:99px;padding:10px 22px;cursor:pointer}
-.tab[aria-selected="true"]{background:var(--petrol);border-color:var(--petrol);color:#fff}
+.tab[aria-selected="true"]{background:var(--omn);border-color:var(--omn);color:#fff}
 .card{background:var(--paper);border:1.5px solid var(--line);border-radius:var(--r-lg);padding:22px}
 .feed ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
 .feed li{display:grid;grid-template-columns:58px 1fr;gap:14px;align-items:start}
@@ -146,7 +148,7 @@ nav.main a:hover{background:var(--blush);color:var(--rose-deep)}
 .area h3{font-size:1.25rem}
 .area p{margin:3px 0 0;font-size:.92rem;color:var(--petrol-soft)}
 .area .go{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--paper);color:var(--rose-deep);font-weight:800}
-.area.star{background:linear-gradient(135deg,var(--petrol),#3d6470);color:#fff}
+.area.star{background:linear-gradient(135deg,#1f5f5a,var(--omn));color:#fff}
 .area.star h3{color:#fff}.area.star p{color:#d9e6ea}
 @media (max-width:900px){.grid{grid-template-columns:1fr}.brace{display:none}.area{border-radius:32px}}
 .check .wrap{padding-block:24px 72px}
@@ -202,7 +204,7 @@ form.msg input:focus,form.msg textarea:focus,form.msg select:focus{border-color:
 .contact dd{margin:0;font-size:1.15rem;font-weight:700}
 .copy{margin-left:8px;font:inherit;font-size:.78rem;font-weight:700;border:1.5px solid var(--rose-light);background:var(--paper);border-radius:99px;padding:3px 10px;cursor:pointer;color:var(--petrol)}
 @media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
-footer{background:var(--petrol);color:#d9e6ea}
+footer{background:#1f5f5a;color:#d9ecea}
 footer .wrap{padding-block:40px;display:grid;gap:22px}
 .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
 footer strong{color:#fff;font-family:var(--font-display);font-size:1.15rem}
@@ -240,7 +242,7 @@ dialog::backdrop{background:rgba(47,77,87,.5)}
 .g-log{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
 .msg-b{max-width:88%;padding:10px 14px;border-radius:20px;font-size:.95rem;white-space:pre-wrap}
 .msg-b.bot{background:var(--blush);border-bottom-left-radius:6px;align-self:flex-start}
-.msg-b.me{background:var(--petrol);color:#fff;border-bottom-right-radius:6px;align-self:flex-end}
+.msg-b.me{background:var(--omn);color:#fff;border-bottom-right-radius:6px;align-self:flex-end}
 .g-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 10px}
 .g-chips button{font:inherit;font-size:.82rem;font-weight:700;border:1.5px solid var(--rose-light);background:var(--paper);color:var(--petrol);border-radius:99px;padding:6px 12px;cursor:pointer}
 .g-chips button:hover{background:var(--blush)}
@@ -324,27 +326,27 @@ dialog::backdrop{background:rgba(47,77,87,.5)}
           <title id="illTitle">Ilustración: un equipo diverso trabajando junto. Una persona en silla de ruedas usa un portátil, otra prueba unas gafas de realidad virtual y otra se comunica en lengua de signos.</title>
           <path d="M60 210 C 40 110 150 40 280 46 C 420 52 520 120 506 220 C 494 316 390 352 270 348 C 150 344 78 300 60 210 Z" fill="#fff"/>
           <circle cx="455" cy="88" r="14" fill="#e9b7ae"/><circle cx="96" cy="116" r="8" fill="#b76e79" opacity=".5"/><circle cx="488" cy="300" r="9" fill="#9aa1a8" opacity=".5"/>
-          <rect x="120" y="248" width="330" height="16" rx="8" fill="#2f4d57"/>
-          <rect x="150" y="264" width="10" height="70" rx="4" fill="#5f7a83"/><rect x="410" y="264" width="10" height="70" rx="4" fill="#5f7a83"/>
+          <rect x="120" y="248" width="330" height="16" rx="8" fill="#1f5f5a"/>
+          <rect x="150" y="264" width="10" height="70" rx="4" fill="#4f7f79"/><rect x="410" y="264" width="10" height="70" rx="4" fill="#4f7f79"/>
           <path d="M392 248 h40 l-6 -26 h-28 z" fill="#e9b7ae"/>
           <path d="M412 222 C 404 196 386 190 380 186 C 392 200 400 210 410 222 Z" fill="#3f8f6b"/>
           <path d="M412 222 C 418 194 432 184 440 180 C 430 198 422 210 414 222 Z" fill="#6fb38a"/>
           <path d="M412 222 C 412 196 412 184 412 172 C 416 190 416 206 413 222 Z" fill="#3f8f6b"/>
           <path d="M196 248 h96 l-10 -6 h-76 z" fill="#9aa1a8"/>
-          <rect x="208" y="196" width="72" height="46" rx="6" fill="#2f4d57"/><rect x="214" y="202" width="60" height="34" rx="3" fill="#e7effb"/>
+          <rect x="208" y="196" width="72" height="46" rx="6" fill="#1f5f5a"/><rect x="214" y="202" width="60" height="34" rx="3" fill="#e7effb"/>
           <circle cx="244" cy="219" r="7" fill="#b76e79"/>
-          <circle cx="132" cy="306" r="40" fill="none" stroke="#2f4d57" stroke-width="7"/><circle cx="132" cy="306" r="5" fill="#2f4d57"/>
-          <path d="M100 250 h58 v26 h-58 z" fill="#5f7a83"/>
+          <circle cx="132" cy="306" r="40" fill="none" stroke="#1f5f5a" stroke-width="7"/><circle cx="132" cy="306" r="5" fill="#1f5f5a"/>
+          <path d="M100 250 h58 v26 h-58 z" fill="#4f7f79"/>
           <path d="M112 196 c0 -12 10 -20 24 -20 c14 0 22 8 22 20 v58 h-46 z" fill="#2350c8"/>
           <path d="M150 214 c18 6 36 14 56 22" stroke="#c98e6b" stroke-width="12" stroke-linecap="round"/>
-          <path d="M136 250 h40 v42" fill="none" stroke="#2f4d57" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M136 250 h40 v42" fill="none" stroke="#1f5f5a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
           <circle cx="135" cy="158" r="22" fill="#c98e6b"/><path d="M112 156 c0 -20 14 -30 26 -30 c14 0 24 10 22 26 c-6 -10 -18 -12 -28 -10 c-8 2 -14 8 -20 14z" fill="#3b2a24"/>
           <path d="M300 160 c0 -12 10 -20 24 -20 c14 0 24 8 24 20 v88 h-48 z" fill="#b76e79"/>
-          <rect x="304" y="246" width="16" height="88" rx="8" fill="#2f4d57"/><rect x="328" y="246" width="16" height="88" rx="8" fill="#2f4d57"/>
+          <rect x="304" y="246" width="16" height="88" rx="8" fill="#1f5f5a"/><rect x="328" y="246" width="16" height="88" rx="8" fill="#1f5f5a"/>
           <path d="M346 170 c16 10 24 24 28 40" stroke="#f1c7a8" stroke-width="12" stroke-linecap="round" fill="none"/>
           <path d="M302 172 c-14 8 -22 18 -26 30" stroke="#f1c7a8" stroke-width="12" stroke-linecap="round" fill="none"/>
           <circle cx="324" cy="116" r="22" fill="#f1c7a8"/><path d="M300 112 c2 -20 18 -28 30 -26 c14 2 22 14 18 30 c-6 -14 -40 -16 -48 -4z" fill="#a8643a"/>
-          <rect x="304" y="104" width="42" height="18" rx="9" fill="#2f4d57"/><rect x="309" y="108" width="32" height="5" rx="2.5" fill="#e9b7ae"/>
+          <rect x="304" y="104" width="42" height="18" rx="9" fill="#1f5f5a"/><rect x="309" y="108" width="32" height="5" rx="2.5" fill="#e9b7ae"/>
           <path d="M440 204 c0 -12 10 -20 22 -20 c13 0 22 8 22 20 v50 h-44 z" fill="#3f8f6b"/>
           <circle cx="462" cy="162" r="21" fill="#8d5a3b"/><path d="M441 160 c0 -18 12 -28 23 -27 c13 1 21 11 19 25 c-8 -8 -16 -12 -26 -10 c-7 2 -12 6 -16 12z" fill="#1d1513"/>
           <path d="M444 214 c-12 -6 -18 -18 -16 -34" stroke="#8d5a3b" stroke-width="11" stroke-linecap="round" fill="none"/><circle cx="429" cy="176" r="8" fill="#8d5a3b"/>
@@ -405,7 +407,7 @@ dialog::backdrop{background:rgba(47,77,87,.5)}
             <a class="btn" href="#contacto">Hablemos</a>
           </div>
           <div class="card best">
-            <h3 style="font-size:1.15rem;margin-bottom:12px">Lo más pedido</h3>
+            <h3 style="font-size:1.15rem;margin-bottom:12px">Servicios destacados</h3>
             <ol>
               <li>Plan de Igualdad automatizado</li>
               <li>Formación en IA para tu equipo</li>
@@ -419,7 +421,7 @@ dialog::backdrop{background:rgba(47,77,87,.5)}
         <div class="areas">
           <a class="area" href="#contacto" style="--bg:var(--sage);--c:var(--sage-deep)">
             <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V11"/><path d="M12 11C12 6 8 4 4 4c0 5 3 7 8 7z"/><path d="M12 14c0-4 3-6 8-6 0 4-3 6-8 6z"/></svg></span>
-            <span><h3>Agrotech</h3><p>Cultivamos y vendemos plantas medicinales con agricultura de precisión</p></span><span class="go" aria-hidden="true">→</span>
+            <span><h3>Agrotech</h3><p>Planta medicinal para herbolarios, farmacias y particulares (con compra mínima)</p></span><span class="go" aria-hidden="true">→</span>
           </a>
           <a class="area" href="#contacto" style="--bg:var(--sky);--c:var(--blue)">
             <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></span>
@@ -490,7 +492,7 @@ dialog::backdrop{background:rgba(47,77,87,.5)}
     <div class="wrap">
       <span class="kicker">Unidad de Apoyo</span>
       <h2 style="margin-top:10px">Nadie trabaja solo en OMN.</h2>
-      <p class="lead" style="margin-top:14px">Nuestra Unidad de Apoyo acompaña a cada persona de la plantilla en su trabajo y en su vida: profesionales del ajuste personal y social, en persona, por vídeo o en realidad virtual.</p>
+      <p class="lead" style="margin-top:14px">Nuestra Unidad de Apoyo acompaña a cada persona de la plantilla en su trabajo y en su vida, con profesionales del ajuste personal y social.</p>
       <p class="easy">La Unidad de Apoyo son personas que te ayudan en el trabajo y en tu vida.</p>
       <div class="ua-grid">
         <div class="ua-card">
@@ -567,7 +569,7 @@ dialog::backdrop{background:rgba(47,77,87,.5)}
       <form class="msg" id="msgForm" novalidate>
         <div><label for="fName">Tu nombre</label><input id="fName" autocomplete="name" required></div>
         <div><label for="fMail">Correo</label><input id="fMail" type="email" autocomplete="email" required></div>
-        <div><label for="fArea">Me interesa</label><select id="fArea"><option>Plan de Igualdad</option><option>Cumplir el 2 % con un CEE</option><option>Formación</option><option>IA · RV · Blockchain · Ciberseguridad</option><option>Agrotech: comprar plantas</option><option>Consultoría</option></select></div>
+        <div><label for="fArea">Me interesa</label><select id="fArea"><option>Plan de Igualdad</option><option>Cumplir el 2 % con un CEE</option><option>Formación</option><option>IA · RV · Blockchain · Ciberseguridad</option><option>Agrotech: comprar planta medicinal</option><option>Consultoría</option></select></div>
         <div><label for="fMsg">Tu mensaje</label><textarea id="fMsg" rows="4"></textarea></div>
         <label class="consent"><input type="checkbox" id="fOk" required> <span>He leído la <a href="#" data-open="dPriv">política de privacidad</a> y acepto que OMN Hub use mis datos para responderme.</span></label>
         <button class="btn rose" type="submit">Enviar</button>
@@ -713,11 +715,11 @@ dialog::backdrop{background:rgba(47,77,87,.5)}
   $('resetAll').onclick = () => { flagBtns.forEach(b => setFlag(b.dataset.flag, false)); scale = 1; applyScale(); ways.forEach(w => w.setAttribute('aria-pressed','false')); if (window.speechSynthesis) speechSynthesis.cancel(); };
 
   const feeds = {
-    news:[['10','nov','Equality World','Lanzamos el Plan de Igualdad automatizado: la IA prepara, las personas deciden.'],['7','sep','Ya somos Centro Especial de Empleo','El SEF de la Región de Murcia nos califica con el n.º 30/0108-CEE.']],
-    events:[['—','pronto','Puertas abiertas en el CEEIM','Ven a conocernos y a probar las gafas de realidad virtual.'],['—','pronto','Formación en igualdad','Para comisiones negociadoras, en sala o en realidad virtual.']]
+    news:[['7','sep','Ya somos Centro Especial de Empleo','El SEF de la Región de Murcia nos califica con el n.º 30/0108-CEE.']],
+    events:[]
   };
   const showFeed = k => {
-    $('feedList').innerHTML = feeds[k].map(([d,m,t,p]) => `<li><span class="date"><b>${d}</b><small>${m}</small></span><p><span class="t">${t}</span>${p}</p></li>`).join('');
+    $('feedList').innerHTML = !feeds[k].length ? '<li><p>Muy pronto publicaremos aquí nuestros eventos.</p></li>' : feeds[k].map(([d,m,t,p]) => `<li><span class="date"><b>${d}</b><small>${m}</small></span><p><span class="t">${t}</span>${p}</p></li>`).join('');
     $('tabNews').setAttribute('aria-selected', String(k==='news')); $('tabEvents').setAttribute('aria-selected', String(k==='events'));
     $('feed').setAttribute('aria-labelledby', k==='news'?'tabNews':'tabEvents');
   };
@@ -758,7 +760,7 @@ dialog::backdrop{background:rgba(47,77,87,.5)}
   const SECTIONS = ['inicio','areas','igualdad','unidad-apoyo','trabaja','contacto','significado','proposito','quienes'];
   const RULES = `Eres la Guía OMN, la asistente de la web de OMN Hub. Eres una inteligencia artificial y lo dices si te preguntan.
 Tu forma de hablar: cálida, cercana, positiva y respetuosa. Frases cortas y claras: muchas personas que te escriben tienen dislexia, TDAH, autismo o discapacidad intelectual. Responde en el idioma de la persona. Máximo 4 frases. Termina ofreciendo un paso concreto.
-Sobre OMN Hub: Centro Especial de Empleo tecnológico de Murcia (n.º 30/0108-CEE, calificado por el SEF). Propósito: "Recapacitando al mundo": devolver capacidad y llevar la tecnología a quien no tiene recursos. Cinco áreas: Agrotech (cultivo y venta de plantas medicinales en Santomera), IA·RV·Blockchain·Ciberseguridad, Academia y formación, Consultoría-asesoría-automatizaciones, y Equality World (Plan de Igualdad, registro retributivo, protocolos, formación). Las empresas de 50 o más personas pueden cumplir el 2 % de discapacidad contratando servicios con un CEE como OMN. Unidad de Apoyo: profesionales que acompañan a la plantilla; los profesionales pueden inscribirse en la web. Trabaja con nosotros: buscamos personas con discapacidad y personal técnico; adaptamos la entrevista. Contacto: teléfono 611 140 587; CEEIM, Campus de Espinardo 7, Murcia.
+Sobre OMN Hub: Centro Especial de Empleo tecnológico de Murcia (n.º 30/0108-CEE, calificado por el SEF). Propósito: "Recapacitando al mundo": devolver capacidad y llevar la tecnología a quien no tiene recursos. Cinco áreas: Agrotech (cultivo en Santomera y venta de planta medicinal a herbolarios, farmacias y particulares con un mínimo de compra; no vendemos extractos), IA·RV·Blockchain·Ciberseguridad, Academia y formación, Consultoría-asesoría-automatizaciones, y Equality World (Plan de Igualdad, registro retributivo, protocolos, formación). Las empresas de 50 o más personas pueden cumplir el 2 % de discapacidad contratando servicios con un CEE como OMN. Unidad de Apoyo: profesionales que acompañan a la plantilla; los profesionales pueden inscribirse en la web. Trabaja con nosotros: buscamos personas con discapacidad y personal técnico; adaptamos la entrevista. Contacto: teléfono 611 140 587; CEEIM, Campus de Espinardo 7, Murcia.
 Reglas: no inventes precios, plazos ni datos que no estén aquí; si no lo sabes, ofrece el teléfono 611 140 587. No pidas datos de salud. No das diagnósticos ni consejo médico o legal personal.
 Si la persona expresa angustia, crisis o ideas de hacerse daño: responde con mucha calma y cariño, dile que no está sola, que puede llamar ahora al 024 (gratis, 24 horas) o al 112 si es una emergencia, y ofrécele la Unidad de Apoyo.
 Cuando ayude, usa la herramienta irA para llevar a la persona a la sección de la página que necesita.`;
@@ -839,7 +841,7 @@ Cuando ayude, usa la herramienta irA para llevar a la persona a la sección de l
   const key = new T.DirectionalLight(0xffffff, .6); key.position.set(2,4,5); scene.add(key);
   const cam = new T.PerspectiveCamera(30, 1, .1, 100); cam.position.set(0, 0, 6.6);
   const LOGO = __LOGO__;
-  const satin = new T.MeshPhysicalMaterial({color:0x1f3b43, metalness:.35, roughness:.3, clearcoat:1, clearcoatRoughness:.15});
+  const satin = new T.MeshPhysicalMaterial({color:0x2f8178, metalness:.55, roughness:.28, clearcoat:1, clearcoatRoughness:.12});
   const roseGold = new T.MeshPhysicalMaterial({color:0xd38b78, metalness:1, roughness:.2, clearcoat:.5, clearcoatRoughness:.1});
   const mark = new T.Group();
   const path = (pts, P) => { const v = pts.map(([x,y]) => new T.Vector2(x,y)); const p = new P(); p.moveTo(v[0].x, v[0].y); p.splineThru(v.slice(1).concat([v[0]])); return p; };
