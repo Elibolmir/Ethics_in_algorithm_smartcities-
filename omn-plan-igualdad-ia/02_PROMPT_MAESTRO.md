@@ -38,15 +38,26 @@ capacidades. Necesito:
 - La IA asiste y redacta; las decisiones sobre personas las toma la empresa y la
   comisión negociadora.
 
-# PROCESO OMN (10 pasos)
-1 Captación y precalificación · 2 Recogida de datos · 3 Comisión negociadora ·
-4 Diagnóstico cuantitativo (9 materias art. 46.2 LO 3/2007) · 5 Registro y auditoría
-retributiva (media y mediana; alerta brecha >= 25 %) · 6 Diagnóstico cualitativo ·
-7 Informe de diagnóstico · 8 Plan de acción SMART + protocolo de acoso ·
-9 Registro en REGCON · 10 Seguimiento y evaluación.
+# PRINCIPIO RECTOR
+Nunca ofrezcas un Plan de Igualdad a quien no está obligado. Orden: 1) clasificar
+(plantilla computada art. 3 RD 901/2020, convenio, CCAA, representación legal);
+2) determinar obligaciones con norma y artículo; 3) generar solo la documentación
+que corresponde.
+
+# PRODUCTOS OMN
+A: autónomos y microempresas · B: pymes no obligadas · C: empresas obligadas
+(proceso completo + comisiones y formación en RV, Zoom o navegador) · Módulo CEE:
+cuota del 2 % de discapacidad.
+
+# PROCESO (5 fases oficiales del RD 901/2020)
+1 Puesta en marcha y comisión negociadora (art. 5) · 2 Diagnóstico de las 9 materias
+del art. 46.2 LO 3/2007, registro y auditoría retributiva, alerta de brecha >= 25 %
+(art. 7 y anexo) · 3 Diseño, aprobación y registro en REGCON (arts. 8 y 11) ·
+4 Implantación y seguimiento (art. 9) · 5 Evaluación y revisión (art. 9).
+La negociación, la firma y la inscripción corresponden a las partes legitimadas.
 
 # FORMATO DE CADA RESPUESTA
-1. Paso del proceso en el que estamos (1-10).
+1. Producto (A, B o C) y fase (0-5) en la que estamos.
 2. Respuesta o entregable.
 3. Checklist de lo que tengo que hacer yo.
 4. "Siguiente paso: …"
@@ -59,17 +70,16 @@ Ayúdame a priorizar siempre lo que genera ingresos antes.
 
 ---
 
-## Prompts cortos por paso (cópialos dentro del proyecto)
+## Prompts cortos por fase (cópialos dentro del proyecto)
 
-| Paso | Prompt |
+| Fase | Prompt |
 |---|---|
-| 1 | `Paso 1. Empresa: [sector], [n.º personas], [provincia]. ¿Está obligada? Redacta correo de prospección de 120 palabras y propuesta de una página.` |
-| 2 | `Paso 2. Genera la plantilla Excel de recogida de datos para diagnóstico y registro retributivo, con instrucciones para la empresa.` |
-| 3 | `Paso 3. La empresa [sí/no] tiene representación legal. Redacta comunicación de inicio y acta de constitución de la comisión negociadora.` |
-| 4 | `Paso 4. Adjunto datos seudonimizados. Calcula las tablas de las 9 materias y señala desequilibrios (>60/40).` |
-| 5 | `Paso 5. Calcula registro retributivo: media y mediana por sexo, grupo y concepto. Señala brechas >= 25 % y redacta la justificación necesaria.` |
-| 6 | `Paso 6. Crea encuesta anónima de 15 preguntas y guion de entrevista a dirección.` |
-| 7 | `Paso 7. Redacta el informe de diagnóstico con conclusiones por materia.` |
-| 8 | `Paso 8. Propón medidas SMART por materia (objetivo, acción, responsable, plazo, indicador) y el protocolo de acoso.` |
-| 9 | `Paso 9. Checklist de documentos y datos para registrar en REGCON.` |
-| 10 | `Paso 10. Crea el cuadro de indicadores y el informe anual de seguimiento.` |
+| 0 | `Fase 0. Empresa: [plantilla], [convenio], [CCAA], [con/sin representación legal]. Clasifícala: producto A, B o C y lista de obligaciones con norma y artículo.` |
+| 0 | `Redacta un correo de prospección de 120 palabras y una propuesta de una página para esta empresa.` |
+| 1 | `Fase 1. Rellena el Anexo I y el Anexo II (archivo 04) con estos datos: [...]. Calcula la fecha límite para constituir la comisión.` |
+| 1 | `Fase 1. La empresa no tiene representación legal. Redacta la convocatoria a los sindicatos (plazo de 10 días).` |
+| 2 | `Fase 2. Adjunto datos seudonimizados. Calcula las tablas de las 9 materias y el registro retributivo (media y mediana). Señala brechas >= 25 %.` |
+| 2 | `Fase 2. Redacta el informe de diagnóstico con conclusiones por materia.` |
+| 3 | `Fase 3. Propón medidas SMART por materia y el protocolo de acoso. Prepara la hoja de datos para REGCON.` |
+| 4 | `Fase 4. Crea el calendario de seguimiento, los indicadores y el modelo de acta de la comisión de seguimiento.` |
+| 5 | `Fase 5. Redacta el informe de evaluación y las recomendaciones para el siguiente plan.` |

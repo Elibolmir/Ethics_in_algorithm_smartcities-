@@ -1,122 +1,123 @@
-# Guía paso a paso · Plan de Igualdad automatizado con IA (OMN Hub)
+# Guía paso a paso · Plan de Igualdad automatizado · OMN Hub CEE
 
-> Principio rector: **la IA redacta, calcula y revisa; la experta humana negocia, valida y firma.**
-> La ley exige negociación con la representación de la plantilla. Eso nunca se automatiza: se *asiste*.
+> **Principio rector (de tu presentación):** la plataforma **nunca ofrece un Plan de Igualdad a quien no está obligado**.
+> Primero **clasificar**, después **determinar obligaciones** y por último **generar solo la documentación que corresponde**.
+>
+> **Reparto de papeles:** la plataforma prepara documentos y cálculos. La negociación, la firma y la inscripción corresponden a las partes legitimadas.
+
+Fuentes de esta guía: tu *Guía Fase 1 (RRHH, plan de igualdad)*, tu presentación *Plan de Igualdad automatizado · OMN Hub CEE* (noviembre 2026) y el BOE.
 
 ---
 
-## 0. Marco legal que el producto debe cumplir (verificado)
+## 1. Los tres productos de OMN
 
-| Norma | Qué exige | Qué entregable genera OMN |
+| Producto | Cliente | Qué incluye |
 |---|---|---|
-| **LO 3/2007**, arts. 45-46 | Plan de Igualdad obligatorio en empresas de **50 o más personas**. Diagnóstico sobre 9 materias | Diagnóstico + Plan |
-| **RDL 6/2019** (disp. transitoria) | Obligación plena para 50-100 personas desde el **7 de marzo de 2022** | Argumento comercial |
-| **RD 901/2020** | Comisión negociadora; plazos; contenido mínimo; registro; **vigencia máxima 4 años** | Actas, calendario, plan, seguimiento |
-| **RD 902/2020** | **Registro retributivo** (todas las empresas) y **auditoría retributiva** (empresas con plan) | Excel de registro + informe de auditoría |
-| **Art. 28.3 Estatuto de los Trabajadores** | Si la brecha media es **≥ 25 %** (empresas de 50+), justificar que no responde a motivos de sexo | Nota justificativa |
-| **LO 10/2022** y art. 48 LO 3/2007 | Protocolo frente al acoso sexual y por razón de sexo | Protocolo de acoso |
-| **Ley 4/2023 + RD 1026/2024** | Medidas planificadas LGTBI en empresas de **más de 50 personas** | Módulo adicional (venta cruzada) |
-| **RGPD + LOPDGDD** | OMN trata datos de la plantilla como **encargada del tratamiento** (art. 28 RGPD) | Contrato de encargo |
-| **Reglamento UE de IA 2024/1689** | Art. 4: alfabetización en IA (desde 2-2-2025). Sistemas de IA para **decidir** sobre personas trabajadoras son de alto riesgo (Anexo III, 4) | La IA de OMN solo **asiste y redacta**; no decide sobre personas |
-| **LISOS** arts. 7.13 y 8.17 | Infracción grave o muy grave por no tener o no aplicar el plan | Argumento comercial |
+| **A** | Autónomos y microempresas | Obligaciones básicas, prevención del acoso y registro retributivo (si hay personas trabajadoras) |
+| **B** | Pymes no obligadas al plan | Gestión documental, protocolos, diagnósticos, formación y seguimiento |
+| **C** | Empresas obligadas al Plan de Igualdad | Proceso completo (5 fases) + comisiones y formación en RV, Zoom o navegador |
+| **+ Módulo CEE** (diferencial OMN) | Cualquiera de 50 o más | Cuota del 2 % de discapacidad (RDL 1/2013, art. 42) o medidas alternativas |
 
-**Las 9 materias del diagnóstico (art. 46.2 LO 3/2007):**
-1. Selección y contratación
-2. Clasificación profesional
-3. Formación
-4. Promoción profesional
-5. Condiciones de trabajo, incluida la auditoría salarial
-6. Ejercicio corresponsable de los derechos de conciliación
-7. Infrarrepresentación femenina
-8. Retribuciones
-9. Prevención del acoso sexual y por razón de sexo
-
-**Plazos del RD 901/2020 (art. 4):**
-- Iniciar la negociación: máximo **3 meses** desde que nace la obligación.
-- Plan aprobado y presentado a registro: máximo **1 año** desde que acaba ese plazo de 3 meses.
-- Registro: **REGCON** (registro de convenios y acuerdos colectivos).
-
-### ✏️ Corrección (de maestra a alumna)
-En tu Excel *"obligaciones legal laboral obligatorio 2023"* pone **"+49 - 7 enero 2022"**.
-La fecha correcta es **7 de marzo de 2022** (RDL 6/2019, disposición transitoria duodécima).
-Corrígelo antes de usarlo en material comercial.
+**Precio:** según plantilla, módulos y nivel de revisión profesional. *Pendiente de validar costes y demanda* (lo dice tu presentación; no invento cifras).
 
 ---
 
-## 1. El proceso automatizado en 10 pasos
+## 2. Paso 0 · Clasificador (antes de vender nada)
 
-Cada paso indica: **IA** (lo que hace Claude) · **TÚ** (lo que haces tú) · **ENTREGABLE**.
+**Datos mínimos que pide el cuestionario:** plantilla computada, convenio colectivo, comunidad autónoma, representación legal de la plantilla (RLT).
 
-### Paso 1 · Captación y precalificación
-- **IA:** redacta el correo de prospección, la propuesta y el presupuesto; calcula si la empresa está obligada.
-- **TÚ:** envías y llamas.
-- **ENTREGABLE:** propuesta firmada + contrato de servicios + contrato de encargo de tratamiento (RGPD).
+**Cómo se cuenta la plantilla (art. 3 RD 901/2020):**
+- Toda la empresa, todos los centros y todas las modalidades de contrato (también fijos discontinuos, temporales y personas cedidas por una ETT).
+- Tiempo parcial = 1 persona, sin importar las horas.
+- Contratos temporales extinguidos en los 6 meses anteriores: cada **100 días trabajados o fracción = 1 persona más**.
+- El cómputo se hace, al menos, el **último día de junio y de diciembre**.
+- La obligación nace al llegar a 50 y **se mantiene** aunque luego bajen de 50, una vez constituida la comisión, hasta el fin de la vigencia del plan o durante 4 años.
 
-### Paso 2 · Recogida de datos (onboarding)
-- **IA:** genera el formulario y la plantilla Excel de datos (sexo, puesto, grupo profesional, jornada, antigüedad, salario base, complementos, contrato, formación, promociones, permisos).
-- **TÚ:** envías el enlace a la empresa.
-- **ENTREGABLE:** datos de plantilla **seudonimizados** (código en lugar de nombre).
+**Reglas del clasificador (deterministas, sin IA generativa):**
 
-### Paso 3 · Constitución de la comisión negociadora
-- **IA:** redacta la comunicación de inicio, la carta a los sindicatos (si no hay representación legal) y el **acta de constitución**.
-- **TÚ:** coordinas la reunión.
-- **ENTREGABLE:** acta de constitución firmada.
-
-### Paso 4 · Diagnóstico cuantitativo
-- **IA:** calcula las tablas de las 9 materias: distribución por sexo, segregación horizontal y vertical, índices de rotación, horas de formación, promociones.
-- **TÚ:** revisas que los datos cuadren.
-- **ENTREGABLE:** anexo estadístico con tablas y gráficos.
-
-### Paso 5 · Registro retributivo y auditoría retributiva
-- **IA:** calcula **media y mediana** por sexo, grupo, categoría y concepto retributivo; brecha bruta; señala los casos **≥ 25 %**; propone la valoración de puestos de trabajo (VPT).
-- **TÚ:** validas la VPT con la empresa.
-- **ENTREGABLE:** registro retributivo (Excel) + informe de auditoría retributiva.
-
-### Paso 6 · Diagnóstico cualitativo
-- **IA:** genera la encuesta a la plantilla (anónima) y la guía de entrevistas a dirección; analiza las respuestas.
-- **TÚ:** haces 2-3 entrevistas.
-- **ENTREGABLE:** informe cualitativo.
-
-### Paso 7 · Informe de diagnóstico
-- **IA:** redacta el informe completo con conclusiones por materia.
-- **TÚ:** lo presentas a la comisión.
-- **ENTREGABLE:** informe de diagnóstico aprobado en acta.
-
-### Paso 8 · Plan de acción
-- **IA:** propone objetivos y medidas **SMART** por materia (responsable, plazo, indicador, presupuesto) y el **protocolo de acoso**.
-- **TÚ:** negocias con la comisión; ajustas.
-- **ENTREGABLE:** Plan de Igualdad + protocolo de acoso + acta de aprobación.
-
-### Paso 9 · Registro en REGCON
-- **IA:** prepara la hoja de datos y el checklist de documentos.
-- **TÚ (o la empresa con certificado digital):** presentas en REGCON.
-- **ENTREGABLE:** justificante de registro.
-
-### Paso 10 · Seguimiento (ingreso recurrente)
-- **IA:** genera el cuadro de indicadores, el informe anual de seguimiento y la evaluación intermedia.
-- **TÚ:** reunión de seguimiento anual.
-- **ENTREGABLE:** informe de seguimiento + evaluación final (al cumplirse la vigencia).
-
----
-
-## 2. Paquetes comerciales (hipótesis de partida, a validar con 3-5 clientes)
-
-| Paquete | Incluye | Tipo de ingreso |
+| Plantilla | Obligaciones | Norma |
 |---|---|---|
-| **Express Retributivo** | Registro retributivo + auditoría (pasos 2, 5) | Pago único · vale también para empresas de menos de 50 |
-| **Plan Completo** | Pasos 1-9 | Pago único, en 3 hitos (inicio, diagnóstico, registro) |
-| **Seguimiento** | Paso 10 durante la vigencia | Cuota anual |
-| **Módulo LGTBI** | Medidas RD 1026/2024 | Venta cruzada |
-| **Módulo Discapacidad (diferencial OMN)** | Cuota del 2 %, medidas alternativas, accesibilidad | Venta cruzada propia de un CEE |
-
-> **Precios:** no te doy cifras inventadas. Pide 3 presupuestos a competidores (como cliente) y fija tu precio un 10-20 % por debajo en el Plan Completo y por encima en el Seguimiento, donde la IA te ahorra más horas.
+| 0 personas | Ninguna de este bloque | — |
+| 1 a 49 | Igualdad de trato · registro retributivo · medidas frente al acoso · conciliación | LO 3/2007, arts. 45 y 48 · ET, art. 28 · RD 902/2020, art. 5 |
+| 50 | Lo anterior + **Plan de Igualdad** + auditoría retributiva + sistema interno de información | RD 901/2020 · RD 902/2020 · Ley 2/2023 |
+| **Más de 50** (51 o más) | Lo anterior + **medidas y protocolo LGTBI** | Ley 4/2023, art. 15 · RD 1026/2024 |
+| Cualquier tamaño | Plan si lo impone el **convenio** o la **autoridad laboral** | LO 3/2007, art. 45.3 y 45.4 |
 
 ---
 
-## 3. Reglas de calidad y ética (no negociables)
+## 3. Las 5 fases oficiales: qué hace la IA y qué haces tú
 
-1. **Datos:** nunca subir nombres, DNI ni datos de salud a la IA. Usar códigos (E001, E002…).
-2. **Firma humana:** todo documento lo revisa y firma la consultora responsable.
-3. **Transparencia:** informar a la empresa de que se usa IA como asistente (buena práctica coherente con el Reglamento UE de IA).
-4. **Trazabilidad:** guardar versión, fecha y revisión de cada documento.
-5. **La IA no decide** sobre contratación, promoción ni salario de ninguna persona.
+### Fase 1 · Puesta en marcha y comisión negociadora (art. 5 RD 901/2020)
+
+**Plazo:** constituir la comisión en **3 meses** desde que se alcanza el umbral (o el plazo que fije el convenio o la autoridad laboral).
+
+**Quién negocia por la plantilla:**
+1. Hay RLT → comité de empresa o delegados/as (o secciones sindicales que sumen la mayoría).
+2. **No hay RLT** → sindicatos más representativos y los representativos del sector. Máximo **6 miembros por parte**. Queda válida con quienes respondan en **10 días**.
+3. Centros con RLT y centros sin ella → comisión mixta (RLT + comisión sindical).
+
+**Reglas de la comisión:** paritaria; composición equilibrada entre mujeres y hombres; máximo **13 personas por parte**; asesoría externa (OMN) **con voz pero sin voto**; acuerdo = empresa + mayoría de la representación de la plantilla; deber de sigilo.
+
+| | |
+|---|---|
+| **IA** | Rellena el *Modelo de promoción de la negociación* y el *Acta de constitución* (ver `04_PLANTILLAS_FASE1.md`); calcula plazos; redacta la convocatoria a los sindicatos si no hay RLT |
+| **TÚ** | Verificas la legitimación, convocas y asistes como asesora externa |
+| **ENTREGABLE** | Comunicación de inicio firmada + acta de constitución con reglamento interno |
+
+### Fase 2 · Diagnóstico (art. 7 y anexo RD 901/2020)
+
+**Las 9 materias obligatorias (art. 46.2 LO 3/2007):** selección y contratación · clasificación profesional · formación · promoción · condiciones de trabajo (con auditoría salarial) · corresponsabilidad y conciliación · infrarrepresentación femenina · retribuciones · prevención del acoso.
+**Opcionales:** violencia de género · lenguaje no sexista · salud laboral.
+
+| | |
+|---|---|
+| **IA** | Plantilla de datos seudonimizados (E001…); tablas por materia; **registro retributivo** (media y mediana por sexo, grupo y concepto); alerta de **brecha ≥ 25 %** (art. 28.3 ET); borrador del informe |
+| **TÚ** | Revisas datos, validas la valoración de puestos y presentas a la comisión |
+| **ENTREGABLE** | Informe de diagnóstico + registro retributivo + auditoría retributiva, aprobados en acta |
+
+### Fase 3 · Diseño, aprobación y registro (arts. 8 y 11 RD 901/2020)
+
+| | |
+|---|---|
+| **IA** | Medidas SMART por materia (objetivo, acción, responsable, plazo, indicador); calendario; protocolo de acoso; hoja de datos para **REGCON** |
+| **TÚ** | Negocias, ajustas y compruebas las firmas |
+| **ENTREGABLE** | Plan firmado + **justificante de inscripción** (nunca figura como registrado sin él) |
+
+### Fase 4 · Implantación y seguimiento (art. 9 RD 901/2020)
+
+| | |
+|---|---|
+| **IA** | Calendario, alertas, indicadores e informe de seguimiento |
+| **TÚ** | Reuniones de la comisión de seguimiento |
+| **ENTREGABLE** | Actas de seguimiento · **ingreso recurrente** |
+
+### Fase 5 · Evaluación y revisión (art. 9 RD 901/2020)
+
+| | |
+|---|---|
+| **IA** | Evaluación intermedia y final; avisos de revisión anticipada; vigencia máxima de **4 años** |
+| **TÚ** | Validas y presentas los resultados |
+| **ENTREGABLE** | Informe de evaluación → nuevo plan (cliente renovado) |
+
+---
+
+## 4. Garantías jurídicas (de tu presentación; no negociables)
+
+1. La IA **no evalúa, selecciona ni decide** sobre personas trabajadoras (Reglamento (UE) 2024/1689, anexo III).
+2. Supervisión humana cualificada en todo documento con efectos jurídicos.
+3. Evaluación de impacto en protección de datos antes del lanzamiento (art. 35 RGPD).
+4. Los expedientes de acoso no pasan por modelos de terceros sin contrato de encargo.
+5. Ningún plan figura como registrado sin justificante de inscripción.
+6. Contrato de encargo del tratamiento (art. 28 RGPD) con cada cliente.
+
+---
+
+## 5. ✏️ Correcciones (de maestra a alumna)
+
+| Dónde | Qué pone | Corrección |
+|---|---|---|
+| Excel *obligaciones legal laboral 2023* | Plan obligatorio desde "7 enero 2022" | **7 de marzo de 2022** (tu propia presentación, diapositiva 11, ya lo tiene bien) |
+| Presentación, diapositiva 4 | Fila "50 o más" incluye "protocolo LGTBI (más de 50)" | Una empresa de **exactamente 50** necesita plan, pero **no** medidas LGTBI. Separar en dos filas: "50" y "más de 50" (hecho en la tabla del apartado 2) |
+| Presentación, diapositiva 12 | "Ley 2/2023 · obligatorio para empresas de 50 a 249" | Más preciso: obligatorio para **todas** las empresas de 50 o más; el **1-12-2023** era la fecha límite para las de 50 a 249 |
+
+**Verificado:** el Reglamento (UE) 2026/1744 (ómnibus digital de IA) existe; se publicó en el DOUE el 24-07-2026 y está en vigor desde el **27-07-2026**. Tu línea de tiempo es correcta.
