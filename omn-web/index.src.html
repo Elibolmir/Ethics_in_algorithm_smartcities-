@@ -16,15 +16,19 @@
   --rose-deep:#99525d;
   --rose-light:#e9b7ae;
   --nickel:#9aa1a8;
-  --omn:#3f8f86;            /* OMN blue: the pen */
-  --omn-tint:#e4f3f0;
-  --petrol:#1f5f5a;
-  --petrol-soft:#4f7f79;
-  --sky:#e7effb;
-  --blue:#2350c8;
-  --sage:#e7f2ec;
-  --sage-deep:#3f8f6b;
-  --honey:#fdf3e2;
+  --omn:#2b3990;            /* OMN blue: the pen's ink */
+  --omn-light:#4a5bc4;
+  --omn-tint:#e9ecfa;
+  --copper:#c8733b;
+  --copper-deep:#a85a28;
+  --copper-tint:#fbeee4;
+  --petrol:#1f2a5c;
+  --petrol-soft:#4f5680;
+  --sky:#e9ecfa;
+  --blue:#2b3990;
+  --sage:#fbeee4;
+  --sage-deep:#a85a28;
+  --honey:#fdf0e6;
   --line:#efe1dc;
   --font-display:"Nunito","Trebuchet MS",system-ui,sans-serif;
   --font-body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
@@ -47,11 +51,11 @@ a{color:var(--rose-deep)}
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 h1,h2,h3{font-family:var(--font-display);line-height:1.12;margin:0;text-wrap:balance;color:var(--petrol)}
 h2{font-size:clamp(1.9rem,3.8vw,2.8rem);font-weight:900;letter-spacing:-.01em}
-.kicker{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.95rem;color:var(--rose-deep)}
-.kicker::before{content:"";width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fbe3dc,var(--rose) 70%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.12)}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.95rem;color:var(--copper-deep)}
+.kicker::before{content:"";width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fde3cf,var(--copper) 70%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.12)}
 .lead{font-size:1.18rem;color:var(--petrol-soft);max-width:36em}
 .easy{display:none;margin:12px 0 0;padding:12px 16px;border-radius:18px;background:var(--honey);font-size:1.05rem;color:var(--petrol);max-width:40em}
-.easy::before{content:"Lectura fácil · ";font-weight:700;color:#9a6a12}
+.easy::before{content:"Lectura fácil · ";font-weight:700;color:var(--copper-deep)}
 :root.easyread .easy{display:block}
 .demo{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--rose-deep);border:1.5px dashed var(--rose);border-radius:99px;padding:1px 9px;vertical-align:middle;font-family:var(--font-body)}
 section{scroll-margin-top:86px}
@@ -90,7 +94,7 @@ nav.main a:hover{background:var(--blush);color:var(--rose-deep)}
 .hello{display:inline-flex;align-items:center;gap:10px;background:var(--paper);border:1.5px solid var(--line);border-radius:99px;padding:8px 16px 8px 8px;font-weight:700;box-shadow:var(--shadow)}
 .hello i{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--blush);font-style:normal}
 .hero h1{font-size:clamp(2.5rem,6.4vw,5rem);font-weight:900;letter-spacing:-.025em;line-height:1.02;margin-top:22px}
-.hero h1 .re{background:linear-gradient(120deg,#d79a98,var(--rose) 45%,#8a4b55);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 .re{background:linear-gradient(110deg,var(--rose) 0%,#c47f6a 50%,var(--copper) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero .lead{margin:20px 0 28px}
 .cta-row{display:flex;gap:12px;flex-wrap:wrap}
 .trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:24px;font-size:.9rem;color:var(--petrol-soft)}
@@ -143,12 +147,12 @@ nav.main a:hover{background:var(--blush);color:var(--rose-deep)}
 .areas{display:grid;gap:14px;min-width:0}
 .area{display:grid;grid-template-columns:70px minmax(0,1fr) 42px;gap:18px;align-items:center;padding:14px 18px 14px 14px;border-radius:999px;text-decoration:none;color:var(--petrol);background:var(--bg);border:1.5px solid transparent;transition:transform .25s ease, box-shadow .25s ease}
 .area:hover{transform:translateX(6px);box-shadow:var(--shadow);border-color:var(--rose-light)}
-.area .ico{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;background:var(--paper);color:var(--c)}
+.area .ico{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;background:var(--paper);color:var(--c);box-shadow:inset 0 0 0 2px var(--c)}
 .area .ico svg{width:32px;height:32px}
 .area h3{font-size:1.25rem}
 .area p{margin:3px 0 0;font-size:.92rem;color:var(--petrol-soft)}
 .area .go{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--paper);color:var(--rose-deep);font-weight:800}
-.area.star{background:linear-gradient(135deg,#1f5f5a,var(--omn));color:#fff}
+.area.star{background:linear-gradient(135deg,#1f2a5c,var(--omn) 60%,var(--omn-light));color:#fff}
 .area.star h3{color:#fff}.area.star p{color:#d9e6ea}
 @media (max-width:900px){.grid{grid-template-columns:1fr}.brace{display:none}.area{border-radius:32px}}
 .check .wrap{padding-block:24px 72px}
@@ -204,13 +208,13 @@ form.msg input:focus,form.msg textarea:focus,form.msg select:focus{border-color:
 .contact dd{margin:0;font-size:1.15rem;font-weight:700}
 .copy{margin-left:8px;font:inherit;font-size:.78rem;font-weight:700;border:1.5px solid var(--rose-light);background:var(--paper);border-radius:99px;padding:3px 10px;cursor:pointer;color:var(--petrol)}
 @media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
-footer{background:#1f5f5a;color:#d9ecea}
+footer{background:#1f2a5c;color:#d9ddf2}
 footer .wrap{padding-block:40px;display:grid;gap:22px}
 .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
 footer strong{color:#fff;font-family:var(--font-display);font-size:1.15rem}
 footer p{margin:4px 0;font-size:.9rem}
 .legal{display:flex;flex-wrap:wrap;gap:8px}
-.legal button{font:inherit;font-size:.88rem;font-weight:700;color:#fff;background:transparent;border:1.5px solid #4f6d77;border-radius:99px;padding:7px 14px;cursor:pointer}
+.legal button{font:inherit;font-size:.88rem;font-weight:700;color:#fff;background:transparent;border:1.5px solid #3c4a85;border-radius:99px;padding:7px 14px;cursor:pointer}
 .legal button:hover{border-color:var(--rose-light)}
 dialog{border:0;border-radius:28px;padding:0;width:min(720px,calc(100vw - 32px));max-height:86vh;color:var(--petrol);background:var(--paper);box-shadow:0 40px 80px -30px rgba(0,0,0,.45)}
 dialog::backdrop{background:rgba(47,77,87,.5)}
@@ -326,28 +330,28 @@ dialog::backdrop{background:rgba(47,77,87,.5)}
           <title id="illTitle">Ilustración: un equipo diverso trabajando junto. Una persona en silla de ruedas usa un portátil, otra prueba unas gafas de realidad virtual y otra se comunica en lengua de signos.</title>
           <path d="M60 210 C 40 110 150 40 280 46 C 420 52 520 120 506 220 C 494 316 390 352 270 348 C 150 344 78 300 60 210 Z" fill="#fff"/>
           <circle cx="455" cy="88" r="14" fill="#e9b7ae"/><circle cx="96" cy="116" r="8" fill="#b76e79" opacity=".5"/><circle cx="488" cy="300" r="9" fill="#9aa1a8" opacity=".5"/>
-          <rect x="120" y="248" width="330" height="16" rx="8" fill="#1f5f5a"/>
-          <rect x="150" y="264" width="10" height="70" rx="4" fill="#4f7f79"/><rect x="410" y="264" width="10" height="70" rx="4" fill="#4f7f79"/>
+          <rect x="120" y="248" width="330" height="16" rx="8" fill="#1f2a5c"/>
+          <rect x="150" y="264" width="10" height="70" rx="4" fill="#4f5680"/><rect x="410" y="264" width="10" height="70" rx="4" fill="#4f5680"/>
           <path d="M392 248 h40 l-6 -26 h-28 z" fill="#e9b7ae"/>
-          <path d="M412 222 C 404 196 386 190 380 186 C 392 200 400 210 410 222 Z" fill="#3f8f6b"/>
-          <path d="M412 222 C 418 194 432 184 440 180 C 430 198 422 210 414 222 Z" fill="#6fb38a"/>
-          <path d="M412 222 C 412 196 412 184 412 172 C 416 190 416 206 413 222 Z" fill="#3f8f6b"/>
+          <path d="M412 222 C 404 196 386 190 380 186 C 392 200 400 210 410 222 Z" fill="#c8733b"/>
+          <path d="M412 222 C 418 194 432 184 440 180 C 430 198 422 210 414 222 Z" fill="#e9a06c"/>
+          <path d="M412 222 C 412 196 412 184 412 172 C 416 190 416 206 413 222 Z" fill="#c8733b"/>
           <path d="M196 248 h96 l-10 -6 h-76 z" fill="#9aa1a8"/>
-          <rect x="208" y="196" width="72" height="46" rx="6" fill="#1f5f5a"/><rect x="214" y="202" width="60" height="34" rx="3" fill="#e7effb"/>
+          <rect x="208" y="196" width="72" height="46" rx="6" fill="#1f2a5c"/><rect x="214" y="202" width="60" height="34" rx="3" fill="#e7effb"/>
           <circle cx="244" cy="219" r="7" fill="#b76e79"/>
-          <circle cx="132" cy="306" r="40" fill="none" stroke="#1f5f5a" stroke-width="7"/><circle cx="132" cy="306" r="5" fill="#1f5f5a"/>
-          <path d="M100 250 h58 v26 h-58 z" fill="#4f7f79"/>
-          <path d="M112 196 c0 -12 10 -20 24 -20 c14 0 22 8 22 20 v58 h-46 z" fill="#2350c8"/>
+          <circle cx="132" cy="306" r="40" fill="none" stroke="#1f2a5c" stroke-width="7"/><circle cx="132" cy="306" r="5" fill="#1f2a5c"/>
+          <path d="M100 250 h58 v26 h-58 z" fill="#4f5680"/>
+          <path d="M112 196 c0 -12 10 -20 24 -20 c14 0 22 8 22 20 v58 h-46 z" fill="#2b3990"/>
           <path d="M150 214 c18 6 36 14 56 22" stroke="#c98e6b" stroke-width="12" stroke-linecap="round"/>
-          <path d="M136 250 h40 v42" fill="none" stroke="#1f5f5a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M136 250 h40 v42" fill="none" stroke="#1f2a5c" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
           <circle cx="135" cy="158" r="22" fill="#c98e6b"/><path d="M112 156 c0 -20 14 -30 26 -30 c14 0 24 10 22 26 c-6 -10 -18 -12 -28 -10 c-8 2 -14 8 -20 14z" fill="#3b2a24"/>
           <path d="M300 160 c0 -12 10 -20 24 -20 c14 0 24 8 24 20 v88 h-48 z" fill="#b76e79"/>
-          <rect x="304" y="246" width="16" height="88" rx="8" fill="#1f5f5a"/><rect x="328" y="246" width="16" height="88" rx="8" fill="#1f5f5a"/>
+          <rect x="304" y="246" width="16" height="88" rx="8" fill="#1f2a5c"/><rect x="328" y="246" width="16" height="88" rx="8" fill="#1f2a5c"/>
           <path d="M346 170 c16 10 24 24 28 40" stroke="#f1c7a8" stroke-width="12" stroke-linecap="round" fill="none"/>
           <path d="M302 172 c-14 8 -22 18 -26 30" stroke="#f1c7a8" stroke-width="12" stroke-linecap="round" fill="none"/>
           <circle cx="324" cy="116" r="22" fill="#f1c7a8"/><path d="M300 112 c2 -20 18 -28 30 -26 c14 2 22 14 18 30 c-6 -14 -40 -16 -48 -4z" fill="#a8643a"/>
-          <rect x="304" y="104" width="42" height="18" rx="9" fill="#1f5f5a"/><rect x="309" y="108" width="32" height="5" rx="2.5" fill="#e9b7ae"/>
-          <path d="M440 204 c0 -12 10 -20 22 -20 c13 0 22 8 22 20 v50 h-44 z" fill="#3f8f6b"/>
+          <rect x="304" y="104" width="42" height="18" rx="9" fill="#1f2a5c"/><rect x="309" y="108" width="32" height="5" rx="2.5" fill="#e9b7ae"/>
+          <path d="M440 204 c0 -12 10 -20 22 -20 c13 0 22 8 22 20 v50 h-44 z" fill="#c8733b"/>
           <circle cx="462" cy="162" r="21" fill="#8d5a3b"/><path d="M441 160 c0 -18 12 -28 23 -27 c13 1 21 11 19 25 c-8 -8 -16 -12 -26 -10 c-7 2 -12 6 -16 12z" fill="#1d1513"/>
           <path d="M444 214 c-12 -6 -18 -18 -16 -34" stroke="#8d5a3b" stroke-width="11" stroke-linecap="round" fill="none"/><circle cx="429" cy="176" r="8" fill="#8d5a3b"/>
           <path d="M480 214 c12 -4 18 -14 18 -28" stroke="#8d5a3b" stroke-width="11" stroke-linecap="round" fill="none"/><circle cx="498" cy="182" r="8" fill="#8d5a3b"/>
@@ -419,15 +423,15 @@ dialog::backdrop{background:rgba(47,77,87,.5)}
           <svg viewBox="0 0 48 400" preserveAspectRatio="none"><path d="M38 4 C18 4 20 34 20 64 L20 168 C20 192 12 200 4 200 C12 200 20 208 20 232 L20 336 C20 366 18 396 38 396" fill="none" stroke="#b76e79" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         </div>
         <div class="areas">
-          <a class="area" href="#contacto" style="--bg:var(--sage);--c:var(--sage-deep)">
+          <a class="area" href="#contacto" style="--bg:var(--copper-tint);--c:var(--copper)">
             <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V11"/><path d="M12 11C12 6 8 4 4 4c0 5 3 7 8 7z"/><path d="M12 14c0-4 3-6 8-6 0 4-3 6-8 6z"/></svg></span>
             <span><h3>Agrotech</h3><p>Planta medicinal para herbolarios, farmacias y particulares (con compra mínima)</p></span><span class="go" aria-hidden="true">→</span>
           </a>
-          <a class="area" href="#contacto" style="--bg:var(--sky);--c:var(--blue)">
+          <a class="area" href="#contacto" style="--bg:var(--sky);--c:var(--omn)">
             <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></span>
             <span><h3>IA · RV · Blockchain · Ciberseguridad</h3><p>Tecnología que cuida de las personas y protege tus datos</p></span><span class="go" aria-hidden="true">→</span>
           </a>
-          <a class="area" href="#contacto" style="--bg:var(--honey);--c:#b07a14">
+          <a class="area" href="#contacto" style="--bg:var(--blush);--c:var(--rose-deep)">
             <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span>
             <span><h3>Academia y formación</h3><p>Aprender tecnología a tu ritmo, también con gafas de realidad virtual</p></span><span class="go" aria-hidden="true">→</span>
           </a>
@@ -841,7 +845,7 @@ Cuando ayude, usa la herramienta irA para llevar a la persona a la sección de l
   const key = new T.DirectionalLight(0xffffff, .6); key.position.set(2,4,5); scene.add(key);
   const cam = new T.PerspectiveCamera(30, 1, .1, 100); cam.position.set(0, 0, 6.6);
   const LOGO = __LOGO__;
-  const satin = new T.MeshPhysicalMaterial({color:0x2f8178, metalness:.55, roughness:.28, clearcoat:1, clearcoatRoughness:.12});
+  const satin = new T.MeshPhysicalMaterial({color:0x16206a, metalness:0, roughness:.42, clearcoat:.35, clearcoatRoughness:.25, envMapIntensity:.45});
   const roseGold = new T.MeshPhysicalMaterial({color:0xd38b78, metalness:1, roughness:.2, clearcoat:.5, clearcoatRoughness:.1});
   const mark = new T.Group();
   const path = (pts, P) => { const v = pts.map(([x,y]) => new T.Vector2(x,y)); const p = new P(); p.moveTo(v[0].x, v[0].y); p.splineThru(v.slice(1).concat([v[0]])); return p; };
