@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OMN Hub CEE</title>
+<meta name="description" content="OMN Hub CEE: Centro Especial de Empleo tecnológico. Agro-Tech, IA y realidades extendidas, consultoría ética e igualdad, gobernanza de datos y formación.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBFAF7; --surface:#FFFFFF; --ink:#14161A; --muted:#454B55;
+    --line:#D9D6CE; --accent:#0F4C81; --accent-ink:#FFFFFF; --soft:#EAF1F8;
+    --a1:#2E6B3A; --a2:#0F4C81; --a3:#7A3E8E; --a4:#8A4B0F; --a5:#9C2F3A;
+    --focus:#F2B705;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#111317; --surface:#1A1D23; --ink:#F1F0EC; --muted:#C2C6CD;
+      --line:#30343C; --accent:#7FB2E5; --accent-ink:#0B1520; --soft:#1C2734;
+      --a1:#7CC48A; --a2:#7FB2E5; --a3:#C99BD8; --a4:#E0A766; --a5:#EE8A94;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#111317; --surface:#1A1D23; --ink:#F1F0EC; --muted:#C2C6CD;
+    --line:#30343C; --accent:#7FB2E5; --accent-ink:#0B1520; --soft:#1C2734;
+    --a1:#7CC48A; --a2:#7FB2E5; --a3:#C99BD8; --a4:#E0A766; --a5:#EE8A94;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Atkinson Hyperlegible", Verdana, Arial, sans-serif;
+    font-size:1.125rem; line-height:1.7; letter-spacing:.01em; word-spacing:.06em;
+  }
+  a{color:var(--accent)}
+  a:focus-visible, button:focus-visible{outline:3px solid var(--focus); outline-offset:3px}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 16px}
+  .skip{position:absolute; left:-999px; top:8px; background:var(--accent); color:var(--accent-ink); padding:8px 14px; border-radius:6px}
+  .skip:focus{left:16px; z-index:100}
+
+  header{position:sticky; top:0; z-index:50; background:var(--bg); border-bottom:1px solid var(--line)}
+  .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:68px}
+  .brand{font-weight:700; font-size:1.3rem; text-decoration:none; color:var(--ink); white-space:nowrap}
+  .brand span{color:var(--accent)}
+  nav ul{list-style:none; display:flex; gap:22px; margin:0; padding:0}
+  nav a{color:var(--ink); text-decoration:none; font-weight:700; font-size:1rem}
+  nav a:hover{text-decoration:underline}
+  .menu-btn{display:none; background:none; border:2px solid var(--ink); color:var(--ink); border-radius:8px; padding:6px 12px; font:inherit; font-weight:700; cursor:pointer}
+  @media (max-width:860px){
+    .menu-btn{display:block}
+    nav ul{display:none; position:absolute; left:0; right:0; top:68px; flex-direction:column; gap:0; background:var(--bg); border-bottom:1px solid var(--line)}
+    nav ul.open{display:flex}
+    nav li a{display:block; padding:14px 16px; border-top:1px solid var(--line)}
+  }
+
+  section{padding:72px 0; border-bottom:1px solid var(--line)}
+  h1,h2,h3{line-height:1.25; margin:0 0 .6em}
+  h1{font-size:clamp(2rem,5vw,3.2rem)}
+  h2{font-size:clamp(1.6rem,3.5vw,2.2rem)}
+  h3{font-size:1.25rem}
+  p{margin:0 0 1em; max-width:68ch}
+  .eyebrow{display:inline-block; font-weight:700; font-size:.95rem; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); margin-bottom:12px}
+  .lead{font-size:1.3rem; color:var(--muted)}
+
+  .hero{padding:96px 0 80px; background:var(--soft)}
+  .cta{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px}
+  .btn{display:inline-block; padding:14px 24px; border-radius:10px; font-weight:700; text-decoration:none; border:2px solid var(--accent)}
+  .btn.primary{background:var(--accent); color:var(--accent-ink)}
+  .btn.ghost{color:var(--accent); background:transparent}
+  .status{margin-top:28px; padding:14px 18px; border-left:5px solid var(--focus); background:var(--surface); max-width:68ch; font-size:1rem}
+
+  .grid{display:grid; gap:20px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:26px}
+  .card p:last-child{margin-bottom:0}
+  .area{border-top:8px solid var(--c)}
+  .num{display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; background:var(--c); color:var(--bg); font-weight:700; margin-bottom:12px}
+  .area ul{margin:0; padding-left:1.2em}
+  .area li{margin-bottom:.35em}
+  .tag{display:inline-block; font-size:.85rem; font-weight:700; padding:3px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted); margin-top:10px}
+
+  .stat{font-size:2.2rem; font-weight:700; color:var(--accent); line-height:1.1; margin-bottom:6px}
+  .src{font-size:.9rem; color:var(--muted)}
+  .steps{counter-reset:s; list-style:none; padding:0; margin:0}
+  .steps li{counter-increment:s; position:relative; padding:0 0 18px 56px}
+  .steps li::before{content:counter(s); position:absolute; left:0; top:0; width:40px; height:40px; border-radius:50%; background:var(--accent); color:var(--accent-ink); font-weight:700; display:flex; align-items:center; justify-content:center}
+
+  form{display:grid; gap:16px; max-width:640px}
+  label{font-weight:700; display:block; margin-bottom:6px}
+  input, select, textarea{width:100%; font:inherit; padding:12px 14px; border:2px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink)}
+  input:focus, select:focus, textarea:focus{border-color:var(--accent); outline:none}
+  button.btn{cursor:pointer; font:inherit; font-weight:700}
+
+  footer{padding:40px 0; font-size:1rem; color:var(--muted)}
+  footer .grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .theme{background:none; border:2px solid var(--line); color:var(--ink); border-radius:8px; padding:6px 12px; font:inherit; cursor:pointer}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#inicio">OMN <span>Hub</span> CEE</a>
+    <nav aria-label="Principal">
+      <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menú</button>
+      <ul id="menu">
+        <li><a href="#quienes">Quiénes somos</a></li>
+        <li><a href="#areas">Áreas</a></li>
+        <li><a href="#soluciones">Soluciones</a></li>
+        <li><a href="#empresas">Para empresas</a></li>
+        <li><a href="#matr3x">Matr3x</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <span class="eyebrow">Centro Especial de Empleo tecnológico · Murcia</span>
+    <h1>Recapacitando al mundo.</h1>
+    <p class="lead">Transformamos el empleo de las personas con discapacidad uniendo tecnología avanzada, ética y compromiso social.</p>
+    <div class="cta">
+      <a class="btn primary" href="#areas">Conocer las 5 áreas</a>
+      <a class="btn ghost" href="#empresas">Soy una empresa</a>
+    </div>
+    <p class="status"><strong>Estado:</strong> OMN Hub CEE, S.L. se encuentra en trámite de calificación como Centro Especial de Empleo ante el Servicio Regional de Empleo y Formación (SEF) de la Región de Murcia. La actividad productiva comenzará tras la resolución favorable.</p>
+  </div>
+</section>
+
+<!-- QUIÉNES SOMOS -->
+<section id="quienes">
+  <div class="wrap">
+    <span class="eyebrow">Quiénes somos</span>
+    <h2>Un CEE pionero que va más allá de la integración al uso</h2>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Misión</h3>
+        <p>Transformar el paradigma del empleo con soluciones tecnológicas que eliminan barreras y maximizan el potencial humano, para hacer del mundo laboral un lugar más justo y accesible.</p>
+      </div>
+      <div class="card">
+        <h3>Visión</h3>
+        <p>Un espacio sin sesgos —en realidad física y virtual, disponible 24/7— donde cada persona con discapacidad se desarrolla y llega a su mejor versión, en el trabajo y en su vida personal.</p>
+      </div>
+      <div class="card">
+        <h3>Equipo</h3>
+        <p>Equipo fundador multidisciplinar con especialización en Data Science, Estadística, Derecho, Recursos Humanos y Física. Dirige el proyecto <strong>Elisabet Bolarín Miró</strong>, CEO.</p>
+      </div>
+      <div class="card">
+        <h3>Compromiso</h3>
+        <p>Alineamiento con los Objetivos de Desarrollo Sostenible (ODS) y actividad tecnológica bajo el Reglamento (UE) 2024/1689 de Inteligencia Artificial (AI Act).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS -->
+<section id="areas">
+  <div class="wrap">
+    <span class="eyebrow">Áreas de negocio</span>
+    <h2>Cinco áreas, un mismo propósito</h2>
+    <p>Cada área genera empleo de calidad para personas con discapacidad y responde a una demanda de mercado con base normativa.</p>
+    <div class="grid g3">
+      <article class="card area" style="--c:var(--a1)">
+        <div class="num" aria-hidden="true">1</div>
+        <h3>Plantas medicinales Agro-Tech</h3>
+        <p>Investigación, semillero, plantación, transformación y comercialización de plantas medicinales con agricultura de precisión.</p>
+        <ul><li>Moringa oleifera</li><li>Artemisia annua</li><li>Aceite esencial de limón</li></ul>
+        <span class="tag">Buenas prácticas GACP</span>
+      </article>
+      <article class="card area" style="--c:var(--a2)">
+        <div class="num" aria-hidden="true">2</div>
+        <h3>IA, realidades extendidas y blockchain</h3>
+        <p>Productos propios y desarrollos a medida en Inteligencia Artificial, Realidad Virtual, Aumentada, Mixta y Extendida, blockchain y criptoactivos.</p>
+        <ul><li>Equal AI</li><li>OMN Hub Human Balance</li><li>Desarrollo para terceros</li></ul>
+        <span class="tag">AI Act · MiCA</span>
+      </article>
+      <article class="card area" style="--c:var(--a3)">
+        <div class="num" aria-hidden="true">3</div>
+        <h3>Consultoría y auditoría: ética, física e igualdad</h3>
+        <ul>
+          <li><strong>Ética en IA:</strong> conformidad AI Act, sesgos algorítmicos, gobernanza ética.</li>
+          <li><strong>Física:</strong> accesibilidad universal y PRL adaptada.</li>
+          <li><strong>Igualdad:</strong> planes de igualdad, auditorías retributivas, protocolos LGTBI, canal ético.</li>
+        </ul>
+      </article>
+      <article class="card area" style="--c:var(--a4)">
+        <div class="num" aria-hidden="true">4</div>
+        <h3>Gobernanza de datos, seguridad y defensa</h3>
+        <ul>
+          <li>Estrategia y arquitectura de datos (Reglamento UE 2022/868).</li>
+          <li>Ciberseguridad: NIS2, ENS, RGPD/LOPDGDD, respuesta a incidentes.</li>
+          <li>Defensa y sector público: en desarrollo, sujeto a habilitaciones del CCN.</li>
+        </ul>
+      </article>
+      <article class="card area" style="--c:var(--a5)">
+        <div class="num" aria-hidden="true">5</div>
+        <h3>Formación en todas las realidades</h3>
+        <ul>
+          <li>Presencial y online: IA ética, blockchain, igualdad, discapacidad, datos, ciberseguridad, agro-tech.</li>
+          <li>Formación inmersiva en RV / RA / RM.</li>
+          <li>Matr3x International Congress.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUCIONES -->
+<section id="soluciones">
+  <div class="wrap">
+    <span class="eyebrow">Soluciones propias</span>
+    <h2>Tecnología construida sobre la ética</h2>
+    <div class="grid g2">
+      <article class="card">
+        <h3>Equal AI</h3>
+        <p>Inteligencia Artificial que automatiza la elaboración, el seguimiento y la auditoría de los Planes de Igualdad: análisis de plantilla, detección de brechas salariales e informes conformes al RD 901/2020 y RD 902/2020.</p>
+        <p>Incluye un espacio de Realidad Virtual para las reuniones del Comité de Igualdad y la formación, accesible con gafas o desde el navegador.</p>
+        <span class="tag">En desarrollo</span>
+      </article>
+      <article class="card">
+        <h3>OMN Hub · Human Balance</h3>
+        <p>Plataforma de IA ética para el bienestar integral de la persona, en cuatro dimensiones: <strong>existencia, nutrición, deporte y comunidad</strong>.</p>
+        <p>Amplía los Servicios de Ajuste Personal y Social (RD 469/2006): conexión con personal sanitario, citas de rehabilitación y comunidad en entorno inmersivo o app.</p>
+        <span class="tag">En desarrollo</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EMPRESAS -->
+<section id="empresas">
+  <div class="wrap">
+    <span class="eyebrow">Para empresas de más de 50 personas</span>
+    <h2>Cumpla la cuota del 2 % contratando con un CEE</h2>
+    <p>La ley obliga a las empresas de 50 o más trabajadores a reservar el 2 % de la plantilla a personas con discapacidad (RDL 1/2013). Con certificado de excepcionalidad, puede cumplirse mediante medidas alternativas, como contratar bienes o servicios con un Centro Especial de Empleo (RD 364/2005).</p>
+    <div class="grid g3" style="margin:28px 0">
+      <div class="card">
+        <div class="stat">2 %</div>
+        <p>Cuota de reserva en empresas de 50 o más trabajadores.</p>
+        <p class="src">RDL 1/2013, art. 42</p>
+      </div>
+      <div class="card">
+        <div class="stat">3 × IPREM</div>
+        <p>Importe mínimo anual de contratación con un CEE por cada puesto no cubierto.</p>
+        <p class="src">RD 364/2005</p>
+      </div>
+      <div class="card">
+        <div class="stat">5 áreas</div>
+        <p>Servicios tecnológicos de alto valor con los que computar la medida alternativa.</p>
+        <p class="src">OMN Hub CEE</p>
+      </div>
+    </div>
+    <h3>Cómo trabajar con nosotros</h3>
+    <ol class="steps">
+      <li><strong>Diagnóstico.</strong> Analizamos su obligación y el número de puestos no cubiertos.</li>
+      <li><strong>Selección de servicio.</strong> Elegimos el área que aporta más valor a su organización.</li>
+      <li><strong>Contrato mercantil.</strong> Formalizamos el servicio como medida alternativa documentada.</li>
+      <li><strong>Impacto medible.</strong> Recibe informes de servicio e impacto social.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- MATR3X -->
+<section id="matr3x">
+  <div class="wrap">
+    <span class="eyebrow">Transmisión del conocimiento</span>
+    <h2>Matr3x · Move to Change International Congress</h2>
+    <p>Congreso de transferencia de conocimiento científico-empresarial con perspectiva ética. La formación genera reputación, la reputación genera proyectos y el congreso genera red y colaboración internacional.</p>
+    <a class="btn ghost" href="https://matr3x.es" rel="noopener">Visitar matr3x.es</a>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="wrap">
+    <span class="eyebrow">Contacto</span>
+    <h2>Hablemos</h2>
+    <p>Empresas, instituciones, personas candidatas y entidades colaboradoras.</p>
+    <!-- PENDIENTE: sustituir CONTACT_EMAIL por el correo público de OMN Hub -->
+    <form id="contact-form" data-email="CONTACT_EMAIL">
+      <div><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" autocomplete="name" required></div>
+      <div><label for="f-email">Correo electrónico</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div>
+        <label for="f-perfil">Soy…</label>
+        <select id="f-perfil" name="perfil">
+          <option>Empresa</option>
+          <option>Institución pública</option>
+          <option>Persona candidata a empleo</option>
+          <option>Entidad colaboradora o inversora</option>
+        </select>
+      </div>
+      <div>
+        <label for="f-area">Área de interés</label>
+        <select id="f-area" name="area">
+          <option>1 · Plantas medicinales Agro-Tech</option>
+          <option>2 · IA, realidades extendidas y blockchain</option>
+          <option>3 · Consultoría ética, física e igualdad</option>
+          <option>4 · Gobernanza de datos, seguridad y defensa</option>
+          <option>5 · Formación y Matr3x</option>
+        </select>
+      </div>
+      <div><label for="f-msg">Mensaje</label><textarea id="f-msg" name="mensaje" rows="5" required></textarea></div>
+      <div><button class="btn primary" type="submit">Enviar</button></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div><strong>OMN Hub CEE, S.L.</strong><br>Murcia, España</div>
+      <div><a href="#">Aviso legal</a><br><a href="#">Política de privacidad</a><br><a href="#">Accesibilidad</a></div>
+      <div><button class="theme" id="theme-btn" type="button">Cambiar modo claro / oscuro</button></div>
+    </div>
+    <p style="margin-top:24px">© 2026 OMN Hub CEE, S.L.</p>
+  </div>
+</footer>
+
+<script>
+  // Menú móvil
+  const btn = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open'); btn.setAttribute('aria-expanded', false);
+  }));
+
+  // Tema claro/oscuro (preferencia del visitante)
+  const root = document.documentElement;
+  try { const t = localStorage.getItem('omn-theme'); if (t) root.dataset.theme = t; } catch(e) {}
+  document.getElementById('theme-btn').addEventListener('click', () => {
+    const dark = root.dataset.theme ? root.dataset.theme === 'dark'
+      : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('omn-theme', root.dataset.theme); } catch(e) {}
+  });
+
+  // Formulario: abre el correo del visitante con el mensaje rellenado
+  document.getElementById('contact-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target, d = new FormData(f);
+    const body = `Nombre: ${d.get('nombre')}\nCorreo: ${d.get('email')}\nPerfil: ${d.get('perfil')}\nÁrea: ${d.get('area')}\n\n${d.get('mensaje')}`;
+    location.href = `mailto:${f.dataset.email}?subject=${encodeURIComponent('Contacto web OMN Hub')}&body=${encodeURIComponent(body)}`;
+  });
+</script>
+</body>
+</html>
