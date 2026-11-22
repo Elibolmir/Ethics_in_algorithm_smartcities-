@@ -1,0 +1,151 @@
+<title>Logo OMN Hub 3D</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/exporters/GLTFExporter.js"></script>
+<style>
+/* One object, one stage: the OMN Hub logo in 3D on a soft studio backdrop, with finish choices and downloads. */
+:root{
+  --paper:#ffffff;
+  --ink:#2b3366;
+  --ink-soft:#6a7096;
+  --line:#e7e9f4;
+  --accent:#3b6478;
+  --font:"Quicksand","Trebuchet MS",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(900px 620px at 50% 42%,#ffffff 0 35%,#f3f4f9 70%,#e9ebf3 100%);color:var(--ink);font-family:var(--font);overflow:hidden}
+.stage{position:fixed;inset:0;cursor:grab;touch-action:none}
+.stage:active{cursor:grabbing}
+.stage canvas{width:100%!important;height:100%!important;display:block}
+.fallback{position:absolute;inset:0;display:grid;place-items:center}
+.fallback img{max-height:70vh;max-width:80vw}
+.bar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;justify-content:center;gap:10px;width:min(760px,calc(100vw - 32px));z-index:2}
+.group{display:flex;gap:4px;padding:5px;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:99px;box-shadow:0 12px 30px -18px rgba(43,51,102,.45)}
+.group span{align-self:center;font-size:.8rem;color:var(--ink-soft);padding:0 8px 0 10px}
+button{font:inherit;font-weight:600;font-size:.9rem;border:0;border-radius:99px;padding:9px 16px;cursor:pointer;background:transparent;color:var(--ink);white-space:nowrap}
+button[aria-pressed="true"]{background:var(--ink);color:#fff}
+button.dl{background:var(--ink);color:#fff}
+button:focus-visible{outline:3px solid #ffab78;outline-offset:2px}
+.hint{position:fixed;top:calc(18px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);font-size:.85rem;color:var(--ink-soft);background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:99px;padding:6px 14px;z-index:2;white-space:nowrap}
+.note{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));font-size:.85rem;color:var(--ink-soft);z-index:2;text-align:center;min-height:1.2em}
+@media (max-width:600px){.bar{gap:6px}.group span{display:none}button{padding:8px 12px;font-size:.82rem}.note{bottom:150px}}
+</style>
+
+<div class="stage" id="stage" role="img" aria-label="Logo de OMN Hub en 3D. Arrastra para girarlo.">
+  <div class="fallback" id="fallback"><img src="data:image/png;base64,__PNG__" alt="Logo de OMN Hub"></div>
+</div>
+<p class="hint">Arrastra para girarlo</p>
+<p class="note" id="note" aria-live="polite"></p>
+<div class="bar">
+  <div class="group" role="group" aria-label="Color del logo"><span>Logo</span>
+    <button data-body="orig" aria-pressed="true">Original</button>
+    <button data-body="ink" aria-pressed="false">Azul OMN</button>
+  </div>
+  <div class="group" role="group" aria-label="Color de los puntos"><span>Puntos</span>
+    <button data-dots="rose" aria-pressed="true">Oro rosa</button>
+    <button data-dots="nickel" aria-pressed="false">Níquel</button>
+    <button data-dots="gold" aria-pressed="false">Dorado</button>
+  </div>
+  <div class="group" role="group" aria-label="Descargar"><span>Descargar</span>
+    <button class="dl" id="dlPng">Imagen PNG</button>
+    <button class="dl" id="dlGlb">Archivo 3D</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  if (!window.THREE) return;
+  const T = THREE, stage = document.getElementById('stage'), note = document.getElementById('note');
+  const r = new T.WebGLRenderer({antialias:true, alpha:true, preserveDrawingBuffer:true});
+  r.setPixelRatio(Math.min(devicePixelRatio, 2)); r.outputEncoding = T.sRGBEncoding; r.toneMapping = T.NoToneMapping;
+  r.shadowMap.enabled = true; r.shadowMap.type = T.PCFSoftShadowMap;
+  stage.appendChild(r.domElement); document.getElementById('fallback').remove();
+  const scene = new T.Scene();
+
+  // soft studio reflections
+  const env = new T.Scene();
+  env.add(new T.Mesh(new T.SphereGeometry(30, 32, 16), new T.MeshBasicMaterial({color:0x9a9db0, side:T.BackSide})));
+  [[0,10,8,14,6],[-12,4,6,6,12],[12,5,4,6,12],[0,-8,6,16,4]].forEach(([x,y,z,w,h]) => { const m = new T.Mesh(new T.PlaneGeometry(w,h), new T.MeshBasicMaterial({color:0xffffff, side:T.DoubleSide})); m.position.set(x,y,z); m.lookAt(0,0,0); env.add(m); });
+  scene.environment = new T.PMREMGenerator(r).fromScene(env, .04).texture;
+
+  scene.add(new T.HemisphereLight(0xffffff, 0xc9cede, .38));
+  const key = new T.DirectionalLight(0xffffff, .75); key.position.set(3, 6, 8); key.castShadow = true;
+  key.shadow.mapSize.set(2048, 2048); key.shadow.camera.left = -4; key.shadow.camera.right = 4; key.shadow.camera.top = 4; key.shadow.camera.bottom = -4; key.shadow.radius = 6;
+  scene.add(key);
+  const rim = new T.DirectionalLight(0xffe9e2, .45); rim.position.set(-6, 3, -4); scene.add(rim);
+
+  const floor = new T.Mesh(new T.PlaneGeometry(30, 30), new T.ShadowMaterial({opacity:.12}));
+  floor.rotation.x = -Math.PI / 2; floor.position.y = -2.05; floor.receiveShadow = true;
+
+  const cam = new T.PerspectiveCamera(28, 1, .1, 100); cam.position.set(0, .2, 9.2);
+
+  const LOGO = __LOGO__;
+  const BODY = { orig:0x1f4a5e, ink:0x1d2a8a };
+  const DOTS = {
+    rose:{color:0xd9806c, metalness:.7, roughness:.28},
+    nickel:{color:0xb8bcc4, metalness:.9, roughness:.2},
+    gold:{color:0xf2b43c, metalness:.85, roughness:.25}
+  };
+  const body = new T.MeshPhysicalMaterial({color:BODY.orig, metalness:0, roughness:.4, clearcoat:.35, clearcoatRoughness:.25, envMapIntensity:.12});
+  const dotMat = new T.MeshStandardMaterial(Object.assign({envMapIntensity:.6}, DOTS.rose));
+
+  const logo = new T.Group();
+  const toShape = (pts, P) => { const p = new P(); pts.forEach(([x,y], i) => i ? p.lineTo(x,y) : p.moveTo(x,y)); p.closePath(); return p; };
+  LOGO.s.forEach(sp => {
+    const shape = toShape(sp.o, T.Shape); sp.h.forEach(h => shape.holes.push(toShape(h, T.Path)));
+    const depth = sp.mark ? .14 : .12;
+    const geo = new T.ExtrudeGeometry(shape, {depth, bevelEnabled:true, bevelThickness:.03, bevelSize:.012, bevelSegments:6, curveSegments:12});
+    geo.translate(0, 0, -depth / 2); geo.computeVertexNormals();
+    const m = new T.Mesh(geo, body); m.castShadow = true; logo.add(m);
+  });
+  const dots = LOGO.d.map(([x,y,rad]) => { const m = new T.Mesh(new T.SphereGeometry(rad, 96, 96), dotMat); m.position.set(x, y, .02); m.castShadow = true; logo.add(m); return m; });
+  logo.position.y = .05; scene.add(logo);
+
+  // choices
+  const setPressed = (sel, el) => document.querySelectorAll(sel).forEach(b => b.setAttribute('aria-pressed', String(b === el)));
+  document.querySelectorAll('[data-body]').forEach(b => b.onclick = () => { body.color.setHex(BODY[b.dataset.body]); setPressed('[data-body]', b); });
+  document.querySelectorAll('[data-dots]').forEach(b => b.onclick = () => { const d = DOTS[b.dataset.dots]; dotMat.color.setHex(d.color); dotMat.metalness = d.metalness; dotMat.roughness = d.roughness; setPressed('[data-dots]', b); });
+
+  // drag to rotate, gentle sway otherwise
+  let down = false, px = 0, py = 0, auto = true, timer;
+  stage.addEventListener('pointerdown', e => { down = true; px = e.clientX; py = e.clientY; auto = false; clearTimeout(timer); stage.setPointerCapture(e.pointerId); });
+  stage.addEventListener('pointerup', () => { down = false; timer = setTimeout(() => auto = true, 3000); });
+  stage.addEventListener('pointermove', e => { if (!down) return; logo.rotation.y += (e.clientX - px) * .01; logo.rotation.x = Math.max(-.7, Math.min(.7, logo.rotation.x + (e.clientY - py) * .008)); px = e.clientX; py = e.clientY; });
+
+  const fit = () => { const w = innerWidth, h = innerHeight; r.setSize(w, h, false); cam.aspect = w / h; cam.position.z = w < h ? 12.5 : 9.2; cam.updateProjectionMatrix(); };
+  addEventListener('resize', fit); fit();
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const t0 = performance.now();
+  const loop = now => {
+    const t = (now - t0) / 1000;
+    if (auto && !still){ logo.rotation.y += (Math.sin(t * .4) * .45 - logo.rotation.y) * .03; logo.rotation.x += (0 - logo.rotation.x) * .03; }
+    r.render(scene, cam); requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+
+  // downloads
+  let downloads = null;
+  (async () => { try { downloads = window.claude?.use ? await claude.use('downloads') : null; } catch(e){} if (!downloads){ document.getElementById('dlPng').closest('.group').hidden = true; } })();
+  const save = async (filename, data) => {
+    if (!downloads){ note.textContent = 'La descarga no está disponible aquí.'; return; }
+    try { const res = await downloads.save({filename, data}); note.textContent = res.status === 'saved' || res.status === 'delivered' ? 'Listo: ' + filename : ''; }
+    catch(e){ note.textContent = e.code === 'cancelled' || e.code === 'declined' ? '' : 'No se pudo descargar. Inténtalo otra vez.'; }
+  };
+  document.getElementById('dlPng').onclick = () => {
+    const w = 2400, h = 2400, old = r.getPixelRatio(), oldSize = new T.Vector2(); r.getSize(oldSize);
+    floor.visible = false; r.setPixelRatio(1); r.setSize(w, h, false); cam.aspect = 1; cam.position.z = 9.6; cam.updateProjectionMatrix();
+    r.render(scene, cam);
+    r.domElement.toBlob(blob => { floor.visible = true; r.setPixelRatio(old); fit(); save('logo-omn-hub-3d.png', blob); }, 'image/png');
+  };
+  document.getElementById('dlGlb').onclick = () => {
+    if (!T.GLTFExporter){ note.textContent = 'El exportador 3D no se ha cargado. Recarga la página.'; return; }
+    new T.GLTFExporter().parse(logo, buf => save('logo-omn-hub.glb', new Blob([buf], {type:'model/gltf-binary'})), {binary:true});
+  };
+})();
+</script>
