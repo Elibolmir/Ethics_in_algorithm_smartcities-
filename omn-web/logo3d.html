@@ -124,7 +124,8 @@ button:focus-visible{outline:3px solid #ffab78;outline-offset:2px}
   const t0 = performance.now();
   const loop = now => {
     const t = (now - t0) / 1000;
-    if (auto && !still){ logo.rotation.y += (Math.sin(t * .4) * .45 - logo.rotation.y) * .03; logo.rotation.x += (0 - logo.rotation.x) * .03; }
+    if (window.__omnFrame) { window.__omnFrame(logo, dots); }
+    else if (auto && !still){ logo.rotation.y += (Math.sin(t * .4) * .45 - logo.rotation.y) * .03; logo.rotation.x += (0 - logo.rotation.x) * .03; }
     r.render(scene, cam); requestAnimationFrame(loop);
   };
   requestAnimationFrame(loop);
