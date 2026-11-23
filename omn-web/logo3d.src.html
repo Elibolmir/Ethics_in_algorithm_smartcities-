@@ -31,6 +31,7 @@ body{margin:0;background:radial-gradient(900px 620px at 50% 42%,#ffffff 0 35%,#f
 button{font:inherit;font-weight:600;font-size:.9rem;border:0;border-radius:99px;padding:9px 16px;cursor:pointer;background:transparent;color:var(--ink);white-space:nowrap}
 button[aria-pressed="true"]{background:var(--ink);color:#fff}
 button.dl{background:var(--ink);color:#fff}
+.sw{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:6px;vertical-align:-2px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.8)}
 button:focus-visible{outline:3px solid #ffab78;outline-offset:2px}
 .hint{position:fixed;top:calc(18px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);font-size:.85rem;color:var(--ink-soft);background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:99px;padding:6px 14px;z-index:2;white-space:nowrap}
 .note{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));font-size:.85rem;color:var(--ink-soft);z-index:2;text-align:center;min-height:1.2em}
@@ -44,8 +45,11 @@ button:focus-visible{outline:3px solid #ffab78;outline-offset:2px}
 <p class="note" id="note" aria-live="polite"></p>
 <div class="bar">
   <div class="group" role="group" aria-label="Color del logo"><span>Logo</span>
-    <button data-body="orig" aria-pressed="true">Original</button>
-    <button data-body="ink" aria-pressed="false">Azul OMN</button>
+    <button data-body="b1" aria-pressed="true" title="Azul Israel luminoso"><i class="sw" style="background:#2f5fe0"></i>1</button>
+    <button data-body="b2" aria-pressed="false" title="Azul zafiro"><i class="sw" style="background:#1f45c4"></i>2</button>
+    <button data-body="b3" aria-pressed="false" title="Azul cielo amable"><i class="sw" style="background:#4f86f0"></i>3</button>
+    <button data-body="b4" aria-pressed="false" title="Azul tinta"><i class="sw" style="background:#26348f"></i>4</button>
+    <button data-body="b5" aria-pressed="false" title="Azul original del logo"><i class="sw" style="background:#2f6680"></i>5</button>
   </div>
   <div class="group" role="group" aria-label="Color de los puntos"><span>Puntos</span>
     <button data-dots="rose" aria-pressed="true">Oro rosa</button>
@@ -86,13 +90,14 @@ button:focus-visible{outline:3px solid #ffab78;outline-offset:2px}
   const cam = new T.PerspectiveCamera(28, 1, .1, 100); cam.position.set(0, .2, 9.2);
 
   const LOGO = __LOGO__;
-  const BODY = { orig:0x1f4a5e, ink:0x1d2a8a };
+  const BODY = { b1:0x2f5fe0, b2:0x1f45c4, b3:0x4f86f0, b4:0x26348f, b5:0x2f6680 };
   const DOTS = {
     rose:{color:0xd9806c, metalness:.7, roughness:.28},
     nickel:{color:0xb8bcc4, metalness:.9, roughness:.2},
     gold:{color:0xf2b43c, metalness:.85, roughness:.25}
   };
-  const body = new T.MeshPhysicalMaterial({color:BODY.orig, metalness:0, roughness:.4, clearcoat:.35, clearcoatRoughness:.25, envMapIntensity:.12});
+  const body = new T.MeshPhysicalMaterial({color:new T.Color(BODY.b1).convertSRGBToLinear(), metalness:0, roughness:.3, clearcoat:1, clearcoatRoughness:.12, envMapIntensity:.18});
+  body.color.convertSRGBToLinear && Object.keys(BODY).forEach(()=>{});
   const dotMat = new T.MeshStandardMaterial(Object.assign({envMapIntensity:.6}, DOTS.rose));
 
   const logo = new T.Group();
@@ -109,7 +114,7 @@ button:focus-visible{outline:3px solid #ffab78;outline-offset:2px}
 
   // choices
   const setPressed = (sel, el) => document.querySelectorAll(sel).forEach(b => b.setAttribute('aria-pressed', String(b === el)));
-  document.querySelectorAll('[data-body]').forEach(b => b.onclick = () => { body.color.setHex(BODY[b.dataset.body]); setPressed('[data-body]', b); });
+  document.querySelectorAll('[data-body]').forEach(b => b.onclick = () => { body.color.setHex(BODY[b.dataset.body]); body.color.convertSRGBToLinear(); setPressed('[data-body]', b); });
   document.querySelectorAll('[data-dots]').forEach(b => b.onclick = () => { const d = DOTS[b.dataset.dots]; dotMat.color.setHex(d.color); dotMat.metalness = d.metalness; dotMat.roughness = d.roughness; setPressed('[data-dots]', b); });
 
   // drag to rotate, gentle sway otherwise
