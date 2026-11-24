@@ -19,7 +19,7 @@
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html,body{height:100%}
-body{margin:0;background:radial-gradient(900px 620px at 50% 42%,#ffffff 0 35%,#f3f4f9 70%,#e9ebf3 100%);color:var(--ink);font-family:var(--font);overflow:hidden}
+body{margin:0;background:radial-gradient(900px 620px at 50% 42%,#ffffff 0 35%,#fdf4ef 70%,#f8e9e4 100%);color:var(--ink);font-family:var(--font);overflow:hidden}
 .stage{position:fixed;inset:0;cursor:grab;touch-action:none}
 .stage:active{cursor:grabbing}
 .stage canvas{width:100%!important;height:100%!important;display:block}
@@ -45,10 +45,9 @@ button:focus-visible{outline:3px solid #ffab78;outline-offset:2px}
 <p class="note" id="note" aria-live="polite"></p>
 <div class="bar">
   <div class="group" role="group" aria-label="Color del logo"><span>Logo</span>
-    <button data-body="o" aria-pressed="false" title="Original"><i class="sw" style="background:#2f6680"></i>Original</button>
-    <button data-body="v1" aria-pressed="true" title="Original sin verde, suave"><i class="sw" style="background:#2f5780"></i>A</button>
-    <button data-body="v2" aria-pressed="false" title="Original sin verde, medio"><i class="sw" style="background:#2f4f80"></i>B</button>
-    <button data-body="v3" aria-pressed="false" title="Original sin verde, más azul"><i class="sw" style="background:#2f4780"></i>C</button>
+    <button data-body="w1" aria-pressed="true" title="Azul cálido profundo"><i class="sw" style="background:#314a9b"></i>1</button>
+    <button data-body="w2" aria-pressed="false" title="Azul cálido medio"><i class="sw" style="background:#3847a8"></i>2</button>
+    <button data-body="w3" aria-pressed="false" title="Azul cálido luminoso"><i class="sw" style="background:#4549ba"></i>3</button>
   </div>
   <div class="group" role="group" aria-label="Color de los puntos"><span>Puntos</span>
     <button data-dots="rose" aria-pressed="true">Oro rosa</button>
@@ -77,11 +76,11 @@ button:focus-visible{outline:3px solid #ffab78;outline-offset:2px}
   [[0,10,8,14,6],[-12,4,6,6,12],[12,5,4,6,12],[0,-8,6,16,4]].forEach(([x,y,z,w,h]) => { const m = new T.Mesh(new T.PlaneGeometry(w,h), new T.MeshBasicMaterial({color:0xffffff, side:T.DoubleSide})); m.position.set(x,y,z); m.lookAt(0,0,0); env.add(m); });
   scene.environment = new T.PMREMGenerator(r).fromScene(env, .04).texture;
 
-  scene.add(new T.HemisphereLight(0xffffff, 0xc9cede, .38));
-  const key = new T.DirectionalLight(0xffffff, .75); key.position.set(3, 6, 8); key.castShadow = true;
+  scene.add(new T.HemisphereLight(0xfff3ea, 0xf3d9d4, .42));
+  const key = new T.DirectionalLight(0xffeedd, .8); key.position.set(3, 6, 8); key.castShadow = true;
   key.shadow.mapSize.set(2048, 2048); key.shadow.camera.left = -4; key.shadow.camera.right = 4; key.shadow.camera.top = 4; key.shadow.camera.bottom = -4; key.shadow.radius = 6;
   scene.add(key);
-  const rim = new T.DirectionalLight(0xffe9e2, .45); rim.position.set(-6, 3, -4); scene.add(rim);
+  const rim = new T.DirectionalLight(0xffc9bd, .6); rim.position.set(-6, 3, -4); scene.add(rim);
 
   const floor = new T.Mesh(new T.PlaneGeometry(30, 30), new T.ShadowMaterial({opacity:.12}));
   floor.rotation.x = -Math.PI / 2; floor.position.y = -2.05; floor.receiveShadow = true;
@@ -89,13 +88,13 @@ button:focus-visible{outline:3px solid #ffab78;outline-offset:2px}
   const cam = new T.PerspectiveCamera(28, 1, .1, 100); cam.position.set(0, .2, 9.2);
 
   const LOGO = __LOGO__;
-  const BODY = { o:0x2f6680, v1:0x2f5780, v2:0x2f4f80, v3:0x2f4780 };
+  const BODY = { w1:0x314a9b, w2:0x3847a8, w3:0x4549ba };
   const DOTS = {
     rose:{color:0xd9806c, metalness:.7, roughness:.28},
     nickel:{color:0xb8bcc4, metalness:.9, roughness:.2},
     gold:{color:0xf2b43c, metalness:.85, roughness:.25}
   };
-  const body = new T.MeshPhysicalMaterial({color:new T.Color(BODY.v1).convertSRGBToLinear(), metalness:0, roughness:.3, clearcoat:1, clearcoatRoughness:.12, envMapIntensity:.18});
+  const body = new T.MeshPhysicalMaterial({color:new T.Color(BODY.w1).convertSRGBToLinear(), metalness:0, roughness:.3, clearcoat:1, clearcoatRoughness:.12, envMapIntensity:.18});
   body.color.convertSRGBToLinear && Object.keys(BODY).forEach(()=>{});
   const dotMat = new T.MeshStandardMaterial(Object.assign({envMapIntensity:.6}, DOTS.rose));
 
