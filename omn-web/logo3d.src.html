@@ -45,11 +45,10 @@ button:focus-visible{outline:3px solid #ffab78;outline-offset:2px}
 <p class="note" id="note" aria-live="polite"></p>
 <div class="bar">
   <div class="group" role="group" aria-label="Color del logo"><span>Logo</span>
-    <button data-body="b1" aria-pressed="true" title="Azul Israel luminoso"><i class="sw" style="background:#2f5fe0"></i>1</button>
-    <button data-body="b2" aria-pressed="false" title="Azul zafiro"><i class="sw" style="background:#1f45c4"></i>2</button>
-    <button data-body="b3" aria-pressed="false" title="Azul cielo amable"><i class="sw" style="background:#4f86f0"></i>3</button>
-    <button data-body="b4" aria-pressed="false" title="Azul tinta"><i class="sw" style="background:#26348f"></i>4</button>
-    <button data-body="b5" aria-pressed="false" title="Azul original del logo"><i class="sw" style="background:#2f6680"></i>5</button>
+    <button data-body="o" aria-pressed="false" title="Original"><i class="sw" style="background:#2f6680"></i>Original</button>
+    <button data-body="v1" aria-pressed="true" title="Original sin verde, suave"><i class="sw" style="background:#2f5780"></i>A</button>
+    <button data-body="v2" aria-pressed="false" title="Original sin verde, medio"><i class="sw" style="background:#2f4f80"></i>B</button>
+    <button data-body="v3" aria-pressed="false" title="Original sin verde, más azul"><i class="sw" style="background:#2f4780"></i>C</button>
   </div>
   <div class="group" role="group" aria-label="Color de los puntos"><span>Puntos</span>
     <button data-dots="rose" aria-pressed="true">Oro rosa</button>
@@ -90,13 +89,13 @@ button:focus-visible{outline:3px solid #ffab78;outline-offset:2px}
   const cam = new T.PerspectiveCamera(28, 1, .1, 100); cam.position.set(0, .2, 9.2);
 
   const LOGO = __LOGO__;
-  const BODY = { b1:0x2f5fe0, b2:0x1f45c4, b3:0x4f86f0, b4:0x26348f, b5:0x2f6680 };
+  const BODY = { o:0x2f6680, v1:0x2f5780, v2:0x2f4f80, v3:0x2f4780 };
   const DOTS = {
     rose:{color:0xd9806c, metalness:.7, roughness:.28},
     nickel:{color:0xb8bcc4, metalness:.9, roughness:.2},
     gold:{color:0xf2b43c, metalness:.85, roughness:.25}
   };
-  const body = new T.MeshPhysicalMaterial({color:new T.Color(BODY.b1).convertSRGBToLinear(), metalness:0, roughness:.3, clearcoat:1, clearcoatRoughness:.12, envMapIntensity:.18});
+  const body = new T.MeshPhysicalMaterial({color:new T.Color(BODY.v1).convertSRGBToLinear(), metalness:0, roughness:.3, clearcoat:1, clearcoatRoughness:.12, envMapIntensity:.18});
   body.color.convertSRGBToLinear && Object.keys(BODY).forEach(()=>{});
   const dotMat = new T.MeshStandardMaterial(Object.assign({envMapIntensity:.6}, DOTS.rose));
 
